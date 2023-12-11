@@ -6,6 +6,9 @@ const pokemonImgFP = document.querySelector("#pokemon-image-fp")
 const h1Fp = document.querySelector("#h1-fp")
 const h2Fp = document.querySelector("#h2-fp")
 const startButton = document.querySelector(".start-button")
+const firstPageContainer = document.querySelector(".first-page-flex-container")
+const searchField = document.querySelector(".search")
+const teamManagerPage = document.querySelector("#team-manager-page")
 
 
 
@@ -47,5 +50,11 @@ blueButton.addEventListener("click", () => {
     h2Fp.classList.remove("background-color-yellow");
     pokemonImgFP.src = "./assets/img/pokemon-blue.png";
 });
+
+startButton.addEventListener("click", ()=> {
+    firstPageContainer.classList.add("display-none")
+    // searchField.style.display = "flex"
+    teamManagerPage.style.display = "block"
+})
 
 
