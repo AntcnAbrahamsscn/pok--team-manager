@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pokémon Team Manager</title>
+        <link rel="stylesheet" href="style.css" />
+        <script type="module" src="themecolor.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700;900&family=Quicksand:wght@300;400;600&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="first-page-flex-container">
+            <div class="center-content">
+                <section class="img-text-container">
+                    <img
+                        id="pokemon-image-fp"
+                        src="./assets/img/pokemon-red.png"
+                        alt="a picture of charmander"
+                    />
+                    <h1 id="h1-fp">pokémon</h1>
+                    <h2 id="h2-fp">team manager</h2>
+                </section>
+            </div>
+            <section class="color-selection-container delayed show">
+                <h3>choose version</h3>
+                <div class="color-container">
+                    <button
+                        id="red-button"
+                        class="red-color color-content"
+                    ></button>
+                    <button
+                        id="yellow-button"
+                        class="yellow-color color-content"
+                    ></button>
+                    <button
+                        id="blue-button"
+                        class="blue-color color-content"
+                    ></button>
+                </div>
+                <h3>team name</h3>
+                <input type="text" />
+                <button class="start-button">start game</button>
+            </section>
+        </div>
+        <div id="team-manager-page">
+            <section>
+                <div></div>
+                <div>
+                    <input type="text" />
+                </div>
+            </section>
+        </div>
+    </body>
+</html>

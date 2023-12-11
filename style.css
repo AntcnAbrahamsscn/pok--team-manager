@@ -1,0 +1,167 @@
+html, body {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background-color: #ebebeb;
+    height: 100%;
+}
+
+h1 {
+    font-weight: 900;
+    background-color: #fe4a49;
+
+}
+
+h2 {
+    font-weight: 600;
+    background-color: #fe4a49;
+
+}
+
+.first-page-flex-container {
+    height: 100%; 
+    justify-content: space-between; 
+    display: flex;
+    flex-direction: column;
+}
+
+.img-text-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    /* padding-top: 4em; */
+    /* margin-top: 20%; */
+}
+
+.img-text-container h1,
+.img-text-container h2 {
+    font-size: 2.7em;
+    margin: 0;
+    border-radius: 3px;
+    color: #ebebeb;
+    padding: 0 1em;
+    border: 3px solid #ebebeb;
+    background-clip: padding-box;
+    position: relative; 
+
+}
+
+.img-text-container h1 {
+    transform: rotate(-7deg); 
+    z-index: 2; 
+
+}
+
+.img-text-container h2 {
+    transform: rotate(2deg); 
+    font-size: 1.3em;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+}
+
+.img-text-container img {
+    position: relative;
+    top: 2.8em;
+    z-index: 1; 
+    margin-top: -1em; 
+    height: 338px;
+}
+
+
+.center-content {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    height: 100%;
+}
+
+.color-selection-container {
+    text-align: center;
+    padding-bottom: 2em;
+    width: 100%;
+    background-color: #fe4a49;
+
+}
+
+.background-color-red {
+    background-color: #fe4a49;
+}
+.background-color-yellow {
+    background-color: #f9a03f;
+}
+.background-color-blue {
+    background-color: #28536b;
+}
+
+.color-selection-container h3 {
+    color: #ebebeb;
+    font-weight: bold;
+    font-size: 1.6em;
+    font-weight: 800;
+    margin-bottom: 0.2em;
+
+}
+
+.color-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    max-width: 250px;
+    margin: 0 auto;
+    
+}
+
+.color-content {
+    /* background-color: #ebebeb; */
+    border: 4px solid #ebebeb;
+    border-radius: 5px;
+    height: 4em;
+    flex-grow: 1;
+    
+}
+
+.red-color {
+    background-image: url(assets/img/pokemon-red.png);
+    background-color: #fe4a49;
+    background-size: cover;
+
+}
+
+.blue-color {
+    background-image: url(assets/img/pokemon-blue.png);
+    background-color: #28536b;
+    background-size: cover;
+
+}
+.yellow-color {
+    background-image: url(assets/img/pokemon-yellow.png);
+    background-size: cover;
+    background-color: #f9a03f;
+    transition: transform 0.3s ease-in-out;
+}
+
+.yellow-color:hover {
+        background-size: 150%;
+        background-position-y: -100px;
+        background-position-x: -20px;
+}
+
+.red-color:hover {
+    background-size: 150%;
+    background-position-y: -110px;
+}
+
+.blue-color:hover {
+    background-size: 150%;
+    background-position-x: -15px;
+}
+/* CSS */
+.start-button {
+  appearance: button;
+  background: none;
+  border:  1px solid #ebebeb;
+  color:#ebebeb;
+}
+
