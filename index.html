@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="standards.css" />
         <script type="module" src="pokemon.js"></script>
     </head>
-    <body class="theme-red theme-blue theme-yellow">
+    <body>
         <div class="first-page-flex-container">
             <div class="center-content">
                 <section class="img-text-container">
@@ -25,8 +25,8 @@
                         src="./assets/img/pokemon-red.png"
                         alt="a picture of charmander"
                     />
-                    <h1 id="h1-fp">pokémon</h1>
-                    <h2 id="h2-fp">team manager</h2>
+                    <h1 class="h1-fp">pokémon</h1>
+                    <h2 class="h2-fp">team manager</h2>
                 </section>
             </div>
             <section class="color-selection-container">
@@ -34,16 +34,16 @@
                     <h3>choose version</h3>
                     <div class="color-container">
                         <button
-                            id="red-button"
-                            class="red-color color-content"
+                            class="theme-btn color-content red-img"
+                            data-theme="red"
                         ></button>
                         <button
-                            id="yellow-button"
-                            class="yellow-color color-content"
+                            class="theme-btn color-content yellow-img"
+                            data-theme="yellow"
                         ></button>
                         <button
-                            id="blue-button"
-                            class="blue-color color-content"
+                            class="theme-btn color-content blue-img"
+                            data-theme="blue"
                         ></button>
                     </div>
                     <h3>team name</h3>

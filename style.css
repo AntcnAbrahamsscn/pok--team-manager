@@ -20,13 +20,14 @@
     font-size: 2.7em;
     margin: 0;
     border-radius: 3px;
-    color: #ebebeb;
+    color: var(--white);
     padding: 0 1em;
-    border: 4px solid #ebebeb;
+    border: 4px solid var(--white);
     background-clip: padding-box;
     position: relative; 
 
 }
+
 
 .img-text-container h1 {
     transform: rotate(-7deg); 
@@ -66,19 +67,18 @@
     text-align: center;
     padding-bottom: 2em;
     width: 100%;
-    background-color: #fe4a49;
+    background-color: var(--red);
 }
 
 
 
 .color-selection-container h3 {
-    color: #ebebeb;
+    color: var(--white);
     font-weight: bold;
     font-size: 1.6em;
-    font-weight: 800;
+    font-weight: 700;
     margin-bottom: 0.2em;
     margin-top: 0.2em;
-
 }
 
 .color-container {
@@ -92,47 +92,76 @@
 }
 
 .color-content {
-    border: 4px solid #ebebeb;
+    border: 4px solid var(--white);
     border-radius: 50px;
     height: 5em;
     width: 5em;
-    /* flex-grow: 1; */
-    
+    transition: 0.05s;
+
 }
 
-.red-color {
+.color-content:hover {
+    border: 2px solid var(--white);
+    transition: 0.15s ease-in-out;
+}
+
+.red-img {
     background-image: url(assets/img/pokemon-red.png);
-    background-color: #fe4a49;
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: var(--red);
+    background-size: 100%;
+    background-position-x: 12px;
+    background-position-y: 8px;
+    transition: 0.05s;
+    background-color: #e75e5e;
 }
 
-.blue-color {
+.blue-img {
     background-image: url(assets/img/pokemon-blue.png);
-    background-color: #28536b;
-    background-size: cover;
+    background-color: var(--blue);
+    background-size: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-position-y: 8px;
+    background-color: #4282a4;
+    transition: 0.05s;
+
 
 }
-.yellow-color {
+.yellow-img {
     background-image: url(assets/img/pokemon-yellow.png);
-    background-size: cover;
-    background-color: #f9a03f;
-    transition: transform 0.3s ease-in-out;
+    background-repeat: no-repeat;
+    background-size:100% auto;
+    background-color: var(--yellow);
+    background-position: center center;
+    background-color: #f9b56c;
+    transition: 0.05s;
+
 }
 
-.yellow-color:hover {
-        background-size: 150%;
-        background-position-y: -90px;
-        background-position-x: -20px;
-}
-
-.red-color:hover {
-    background-size: 150%;
-    background-position-y: -110px;
-}
-
-.blue-color:hover {
-    background-size: 150%;
-    background-position-x: -15px;
+.yellow-img:hover {
+        transform: scale(1.2);
+        transition: 0.15s ease-in-out;
+        background-size: 150% auto;
+        background-color: var(--yellow);
+    }
+    
+    .red-img:hover {
+        background-position: center center;
+        background-position-x: 6px;
+        background-position-y: 8px;
+        background-size: 150% auto;
+        transform: scale(1.2);
+        transition: 0.15s ease-in-out;
+        background-color: var(--red);
+    }
+    
+    .blue-img:hover {
+        background-size: 150% auto;
+        background-size: 150% ;
+        transform: scale(1.2);
+        transition: 0.15s ease-in-out;
+        background-color: var(--blue);
 }
 /* CSS */
 
@@ -147,7 +176,7 @@
 .circle-menu {
     width: 3em;
     height: 3em;
-    background-color: #fe4a49;
+    background-color: var(--red);
     border-radius: 50px;
     margin-right: 1em;
     display: flex;
@@ -158,18 +187,12 @@
 }
 
 .menu-line {
-    background-color: #ebebeb;
+    background-color: var(--white);
     height: 5px;
     border-radius: 50px;
     width: 2em;
     margin: 0.2em;
 }
-
-
-
-
-
-
 
   #team-manager-page {
     display: none;

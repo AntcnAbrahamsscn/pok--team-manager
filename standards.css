@@ -6,23 +6,30 @@ html, body {
     height: 100%;
 }
 
+/* Colors */
+:root {
+    --red: #fe4a49;
+    --yellow: #f9a03f;
+    --blue: #28536b;
+    --white: #ebebeb;
+  }
 /* Text */
 h1 {
     font-weight: 900;
-    background-color: #fe4a49;
-    color: #ebebeb
+    background-color: var(--red);
+    color: var(--white)
 
 }
 
 h2 {
     font-weight: 600;
-    background-color: #fe4a49;
-    color: #ebebeb
+    background-color: var(--red);
+    color: var(--white)
 }
 h4 {
     font-weight: 600;
-    background-color: #fe4a49;
-    color: #ebebeb;
+    background-color: var(--red);
+    color: var(--white);
     font-size: 2em;
     text-align: center;
     margin: 10px 20px;
@@ -31,29 +38,19 @@ h4 {
 }
 
 /* Theme-colors */
-/* .theme-red  {
-    background-color: #fe4a49;
+.theme-red {
+    background-color: var(--red);
 
 }
 .theme-blue {
-    background-color: #28536b;
-
+    background-color: var(--blue);
 }
+
 .theme-yellow {
-    background-color: #f9a03f;
+    background-color: var(--yellow);
 
-} */
+}
 
-
-.background-color-red {
-    background-color: #fe4a49;
-}
-.background-color-yellow {
-    background-color: #f9a03f;
-}
-.background-color-blue {
-    background-color: #28536b;
-}
 /* Input/ button */
 .search {
     display: flex;
@@ -66,9 +63,9 @@ h4 {
   .search-input {
     font-family: inherit;
     font-size: inherit;
-    background-color: #f4f2f2;
+    background-color: #f4f2ff;
     border: none;
-    color: #646464;
+    color: #4e4d4d;
     padding: 0.7rem 1rem;
     border-radius: 30px;
     width: 100%;
