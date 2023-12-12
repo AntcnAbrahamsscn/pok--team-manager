@@ -12,8 +12,11 @@
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700;900&family=Quicksand:wght@300;400;600&display=swap"
             rel="stylesheet"
         />
+        <link rel="stylesheet" href="firstpage-styles.css" />
+        <link rel="stylesheet" href="standards.css" />
+        <script type="module" src="pokemon.js"></script>
     </head>
-    <body>
+    <body class="theme-red theme-blue theme-yellow">
         <div class="first-page-flex-container">
             <div class="center-content">
                 <section class="img-text-container">
@@ -44,7 +47,7 @@
                         ></button>
                     </div>
                     <h3>team name</h3>
-                    <div class="search team-name-input">
+                    <form class="search team-name-input">
                         <input
                             type="text"
                             class="search-input"
@@ -63,22 +66,27 @@
                                 </g>
                             </svg>
                         </button>
-                    </div>
+                    </form>
                 </div>
             </section>
         </div>
         <div id="team-manager-page">
             <nav class="nav-flex-container">
                 <div class="hamburger-menu">
-                    <div class="circle-menu"></div>
+                    <div class="circle-menu">
+                        <div class="menu-line"></div>
+                        <div class="menu-line"></div>
+                        <div class="menu-line"></div>
+                    </div>
                 </div>
-                <div class="search">
+                <form class="search">
                     <input
+                        id="pokemon-search-input"
                         type="text"
                         class="search-input"
                         placeholder="search pokemon"
                     />
-                    <button class="search-button">
+                    <button class="search-button" id="pokemon-search-button">
                         <svg
                             class="search-icon"
                             aria-hidden="true"
@@ -91,7 +99,7 @@
                             </g>
                         </svg>
                     </button>
-                </div>
+                </form>
             </nav>
         </div>
     </body>
