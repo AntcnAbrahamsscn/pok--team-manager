@@ -171,7 +171,7 @@
 .nav-flex-container {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    /* padding: 20px; */
 }
 .circle-menu {
     width: 3em;
@@ -196,4 +196,18 @@
 
   #team-manager-page {
     display: none;
+    padding: 25px;
+  }
+
+  .pokemon-item {
+    background-color: rgb(217, 208, 208);
+    border-radius: 4px;
+    padding: 25px;
+    margin: 0.6em 0;
+  }
+
+  .team-stats {
+    padding: 25px;
+    border-radius: 4px;
+    color: var(--white)
   }

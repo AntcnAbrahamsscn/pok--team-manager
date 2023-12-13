@@ -1,22 +1,19 @@
-// const redButton = document.querySelector("#red-button")
-// const yellowButton = document.querySelector("#yellow-button")
-// const blueButton = document.querySelector("#blue-button")
-// const colorSectionContainer = document.querySelector(".color-selection-container")
-// const pokemonImgFP = document.querySelector("#pokemon-image-fp")
-// const h1Fp = document.querySelector("#h1-fp")
-// const h2Fp = document.querySelector("#h2-fp")
 const startButton = document.querySelector(".start-button")
 const firstPageContainer = document.querySelector(".first-page-flex-container")
 const teamManagerPage = document.querySelector("#team-manager-page")
 const circleMenu = document.querySelector(".circle-menu")
 const teamNameInput = document.querySelector(".team-name-input")
 const teamName = document.querySelector(".team-name")
-
 const themeButtons = document.querySelectorAll('.theme-btn');
-    const h1Fp = document.querySelector('.h1-fp');
-    const h2Fp = document.querySelector(".h2-fp");
-    const colorSelectionContainer = document.querySelector(".color-selection-container");
+const h1Fp = document.querySelector('.h1-fp');
+const h2Fp = document.querySelector(".h2-fp");
+const colorSelectionContainer = document.querySelector(".color-selection-container");
+const nameContainer = document.querySelector(".name-container")
+const reservesH4 = document.querySelector("#reserves")
+const teamStats = document.querySelector(".team-stats")
 
+
+// Funktion som styr vilken bild som visas på förstasidan.
 function changePokemonImg(theme) {
     const pokemonImage = document.getElementById('pokemon-image-fp');
     if (theme === 'red') {
@@ -28,6 +25,9 @@ function changePokemonImg(theme) {
     }
 }
 
+// Ändrar tema beroende på vilken knapp man trycker på.
+let currentTheme;
+
 themeButtons.forEach(button => {
     button.addEventListener('click', function() {
         const theme = this.dataset.theme;
@@ -37,25 +37,41 @@ themeButtons.forEach(button => {
         h2Fp.classList.add(`theme-${theme}`);
         colorSelectionContainer.classList.remove('theme-red', 'theme-blue', 'theme-yellow');
         colorSelectionContainer.classList.add(`theme-${theme}`);
+        circleMenu.classList.remove('theme-red', 'theme-blue', 'theme-yellow');
+        circleMenu.classList.add(`theme-${theme}`)
+        reservesH4.classList.remove('theme-red', 'theme-blue', 'theme-yellow');
+        reservesH4.classList.add(`theme-${theme}`)
+        teamStats.classList.remove('theme-red', 'theme-blue', 'theme-yellow');
+        teamStats.classList.add(`theme-${theme}`)
+
+        currentTheme = theme;
         changePokemonImg(theme)
     });
 });
 
-
-
-
-startButton.addEventListener("click", (event)=> {
+// Startknapp
+startButton.addEventListener("click", (event) => {
     event.preventDefault();
     teamNameInput.value = teamNameInput.querySelector(".search-input").value;
     createTeamNameTag();
-    firstPageContainer.classList.add("display-none");
-    teamManagerPage.style.display = "block";
-})
+    hideFirstPage();
+    showTeamManagerPage();
+});
 
 function createTeamNameTag() {
-    const teamTag = document.createElement("h4")
-    teamTag.innerText = teamNameInput.value
-    teamManagerPage.append(teamTag)
+    const teamTag = document.createElement("h4");
+    teamTag.classList.add(`theme-${currentTheme}`);
+    teamTag.innerText = teamNameInput.value;
+    nameContainer.append(teamTag);
 }
+
+function hideFirstPage() {
+    firstPageContainer.classList.add("display-none");
+}
+
+function showTeamManagerPage() {
+    teamManagerPage.style.display = "block";
+}
+
 
 

@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="firstpage-styles.css" />
         <link rel="stylesheet" href="standards.css" />
         <script type="module" src="pokemon.js"></script>
+        <link rel="stylesheet" href="mediaquieries.css" />
     </head>
     <body>
         <div class="first-page-flex-container">
@@ -73,7 +74,7 @@
         <div id="team-manager-page">
             <nav class="nav-flex-container">
                 <div class="hamburger-menu">
-                    <div class="circle-menu">
+                    <div class="circle-menu menu-btn" onclick="toggleMenu()">
                         <div class="menu-line"></div>
                         <div class="menu-line"></div>
                         <div class="menu-line"></div>
@@ -101,6 +102,12 @@
                     </button>
                 </form>
             </nav>
+            <div class="name-container"></div>
+            <div class="team-stats">
+                <h5>team stats</h5>
+            </div>
+            <div class="team-container"></div>
+            <div><h4 id="reserves">reserves</h4></div>
         </div>
     </body>
 </html>

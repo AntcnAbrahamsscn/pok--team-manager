@@ -1,0 +1,23 @@
+/* Small Screens */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    #team-manager-page {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+}
+
+  /* Desktops */
+@media only screen and (min-width: 992px) {
+    #team-manager-page {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .first-page-flex-container {
+        height: 100%; 
+        width: 600px;
+        margin: 0 auto;
+    }
+    .color-selection-container {
+        border-radius: 6px;
+    }
+  }
