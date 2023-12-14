@@ -4,18 +4,18 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Pokémon Team Manager</title>
-        <link rel="stylesheet" href="style.css" />
-        <script type="module" src="themecolor.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700;900&family=Quicksand:wght@300;400;600&display=swap"
             rel="stylesheet"
         />
+        <link rel="stylesheet" href="style.css" />
         <link rel="stylesheet" href="firstpage-styles.css" />
         <link rel="stylesheet" href="standards.css" />
-        <script type="module" src="pokemon.js"></script>
         <link rel="stylesheet" href="mediaquieries.css" />
+        <script type="module" src="pokemon.js"></script>
+        <script type="module" src="themecolor.js"></script>
     </head>
     <body>
         <div class="first-page-flex-container">
@@ -74,7 +74,7 @@
         <div id="team-manager-page">
             <nav class="nav-flex-container">
                 <div class="hamburger-menu">
-                    <div class="circle-menu menu-btn" onclick="toggleMenu()">
+                    <div class="circle-menu menu-btn" id="menuBtn">
                         <div class="menu-line"></div>
                         <div class="menu-line"></div>
                         <div class="menu-line"></div>
@@ -102,12 +102,21 @@
                     </button>
                 </form>
             </nav>
-            <div class="name-container"></div>
-            <div class="team-stats">
-                <h5>team stats</h5>
+            <div id="menu-container">
+                <ul>
+                    <a href="">your team</a>
+                    <a href="">all pokemons</a>
+                    <a href="">quit</a>
+                </ul>
             </div>
-            <div class="team-container"></div>
-            <div><h4 id="reserves">reserves</h4></div>
+            <div id="pokemon-page-container">
+                <div class="name-container"></div>
+                <div class="team-stats">
+                    <h5>team stats</h5>
+                </div>
+                <div class="all-pokemons-container"></div>
+                <div><h4 id="reserves">reserves</h4></div>
+            </div>
         </div>
     </body>
 </html>

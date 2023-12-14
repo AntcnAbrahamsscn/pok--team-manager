@@ -73,5 +73,17 @@ function showTeamManagerPage() {
     teamManagerPage.style.display = "block";
 }
 
+// Hamburger
+const menuContainer = document.getElementById('menu-container');
+const pokemonPageContainer = document.getElementById('pokemon-page-container')
+circleMenu.addEventListener('click', toggleMenu);
 
+function toggleMenu() {
+    menuContainer.classList.toggle('show-menu');
+    pokemonPageContainer.classList.toggle('hide-page')
 
+}
+const menuBtn = document.getElementById('menuBtn');
+
+// Add a click event listener to the menu button
+menuBtn.addEventListener('click', toggleMenu);
