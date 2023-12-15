@@ -25,6 +25,7 @@
     border: 4px solid var(--white);
     background-clip: padding-box;
     position: relative; 
+    
 
 }
 
@@ -144,6 +145,8 @@
         transition: 0.15s ease-in-out;
         background-size: 150% auto;
         background-color: var(--yellow);
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
     }
     
     .red-img:hover {
@@ -154,6 +157,8 @@
         transform: scale(1.2);
         transition: 0.15s ease-in-out;
         background-color: var(--red);
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
     }
     
     .blue-img:hover {
@@ -162,6 +167,8 @@
         transform: scale(1.2);
         transition: 0.15s ease-in-out;
         background-color: var(--blue);
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
 }
 /* CSS */
 
@@ -186,6 +193,8 @@
     align-items: center;
     justify-content: center;
     z-index: 10000;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
 }
 
 .menu-line {
@@ -194,19 +203,23 @@
     border-radius: 50px;
     width: 2em;
     margin: 0.2em;
+    transition: 0.3s; 
+
 }
 
   .team-manager-page {
     display: none;
     padding: 0 25px 25px 25px;
+    transition: opacity 0.5s; 
+
   }
 
   .search-pokemons-page {
     display: none;
     padding: 0 25px 25px 25px;
-}
+    transition: opacity 0.5s; 
 
-  
+}
 
   .pokemon-item {
     background-color: rgb(217, 208, 208);
@@ -218,6 +231,8 @@
   .team-stats {
     padding: 25px;
     border-radius: 4px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
     color: var(--white)
   }
 /* Hamburger */
@@ -229,14 +244,30 @@
     margin: 0 auto;
     background-color: var(--white);
     z-index: 2;
-    opacity: 0; /* Initially set the opacity to 0 */
-    transition: opacity 0.5s; /* Add a transition for the opacity property */
+    opacity: 0; 
+    transition: opacity 0.5s; 
 }
 
 .menu-container.show-menu {
     display: flex;
     flex-direction: column;
-    opacity: 1; /* Set opacity to 1 when the menu is shown */
+    opacity: 1; 
+    transition: 0.3s; 
+}
+
+.menu-item {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+}
+
+.menu-container .menu-item:first-child {
+    transform: rotate(2.4deg); 
+}
+.menu-container .menu-item:nth-child(2) {
+    transform: rotate(-2.1deg); 
+}
+.menu-container .menu-item:first-child {
+    transform: rotate(2.3deg); 
 }
 
 #pokemon-page-container.hide-page {
@@ -273,6 +304,26 @@
 
 .menu-container a {
     margin-top: 0.4em;
+}
+
+.cross .menu-line:nth-child(1) {
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+  
+.cross .menu-line:nth-child(2) {
+    opacity: 0;
+}
+  
+.cross .menu-line:nth-child(3) {
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+
+#search-team-pokemons {
+    display: none;
+}
+#search-all-pokemons {
+    display: none;
 }
 
 

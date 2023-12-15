@@ -1,25 +1,30 @@
+// Variabler för förstasidan
 const startButton = document.querySelector(".start-button")
 const firstPageContainer = document.querySelector(".first-page-flex-container")
-const circleMenu = document.querySelector(".circle-menu")
-const teamNameInput = document.querySelector(".team-name-input")
-const teamName = document.querySelector(".team-name")
 const themeButtons = document.querySelectorAll('.theme-btn');
 const h1Fp = document.querySelector('.h1-fp');
 const h2Fp = document.querySelector(".h2-fp");
 const colorSelectionContainer = document.querySelector(".color-selection-container");
+
+// Variabler för Team Manager Page
 const nameContainer = document.querySelector(".name-container")
-const reservesH4 = document.querySelector("#reserves")
+const reservesH4 = document.querySelector(".reserves")
 const teamStats = document.querySelector(".team-stats")
-const menuItem = document.querySelector(".menu-item")
 const searchTeamPokemons = document.querySelector("#search-team-pokemons")
+
+// Variabler för Search All Pokemons Page
 const searchAllPokemons = document.querySelector("#search-all-pokemons")
-const hamburgerMenuBtn = document.querySelector("#hamburger-menu-btn")
-const navFlexContainer = document.querySelector(".nav-flex-container")
-// Hamburger
+const searchPokemonPage = document.querySelector('.search-pokemons-page');
+
+// Hamburger / Nav / Input
 const menuContainer = document.querySelector('.menu-container');
 const teamPokemonPage = document.querySelector('.team-manager-page');
-const searchPokemonPage = document.querySelector('.search-pokemons-page');
 const inputVisability = document.querySelector('#input-visability')
+const circleMenu = document.querySelector(".circle-menu")
+const teamNameInput = document.querySelector(".team-name-input")
+const teamName = document.querySelector(".team-name")
+const hamburgerMenuBtn = document.querySelector("#hamburger-menu-btn")
+const navFlexContainer = document.querySelector(".nav-flex-container")
 
 
 // Funktion som styr vilken bild som visas på förstasidan.
@@ -49,7 +54,9 @@ themeButtons.forEach(button => {
         circleMenu.classList.remove('theme-red', 'theme-blue', 'theme-yellow');
         circleMenu.classList.add(`theme-${theme}`)
         reservesH4.classList.remove('theme-red', 'theme-blue', 'theme-yellow');
-        reservesH4.classList.add(`theme-${theme}`)
+        document.querySelectorAll('.reserves').forEach(reserve => {
+            reserve.classList.add(`theme-${theme}`);
+        });
         teamStats.classList.remove('theme-red', 'theme-blue', 'theme-yellow');
         teamStats.classList.add(`theme-${theme}`)
         document.querySelectorAll('.menu-container a.menu-item').forEach(item => {
@@ -69,28 +76,20 @@ startButton.addEventListener("click", (event) => {
     event.preventDefault();
     teamNameInput.value = teamNameInput.querySelector(".search-input").value;
     createTeamNameTag();
-    hideFirstPage();
-    showTeamPokemonsPage();
+    firstPageContainer.classList.add("display-none");
+    teamPokemonPage.classList.add("display-block");
     showNavBarTeamPage()
-    showNavbar()
+    navFlexContainer.style.display = "flex"    
 });
 
+// Shows navbar on the team manager page
 function showNavBarTeamPage() {
     searchTeamPokemons.style.display = "flex"
+    searchAllPokemons.style.display = "none"
     circleMenu.style.display = "flex"
 }
 
-function hideNavbar() {
-    navFlexContainer.style.display = "none"
-}
-
-function showNavbar() {
-    navFlexContainer.style.display = "flex"
-}
-function showNavBarAllPage() {
-
-}
-
+// Creates the Team Nametag
 function createTeamNameTag() {
     const teamTag = document.createElement("h4");
     teamTag.classList.add(`theme-${currentTheme}`);
@@ -98,29 +97,16 @@ function createTeamNameTag() {
     nameContainer.append(teamTag);
 }
 
-function showFirstPage() {
-    firstPageContainer.classList.add("display-flex")
-}
-
-function hideFirstPage() {
-    firstPageContainer.classList.add("display-none");
-}
-
-
-function hideSearchPokemonsPage () {
-    searchPokemonPage.classList.remove("display-block")
-}
-function showTeamPokemonsPage() {
-    teamPokemonPage.classList.add("display-block");
-}
-
-// Hamburger
+// Hamburgarmeny
 function toggleMenu() {
     menuContainer.classList.toggle('show-menu');
     teamPokemonPage.classList.toggle('display-none');
     searchPokemonPage.classList.toggle('display-none');
     inputVisability.classList.toggle('display-none')
+    hamburgerMenuBtn.classList.toggle("cross")
+    // circleMenu.classList.toggle("cross")
 }
+
 hamburgerMenuBtn.addEventListener('click', toggleMenu);
 
 
@@ -129,7 +115,9 @@ document.getElementById('all-pokemons-link').addEventListener('click', function(
     console.log('All pokemons link clicked!');
     teamPokemonPage.classList.remove("display-block")
     searchPokemonPage.classList.add("display-block")
-    hideFirstPage()
+    firstPageContainer.classList.add("display-none");
+    searchTeamPokemons.style.display = "none"
+    searchAllPokemons.style.display = "flex"
     toggleMenu()
 });
 
@@ -137,8 +125,10 @@ document.getElementById('team-pokemons-link').addEventListener('click', function
     console.log('Team pokemons link clicked!');
     teamPokemonPage.classList.add("display-block")
     searchPokemonPage.classList.remove("display-block")
-    hideFirstPage()
-    hideSearchPokemonsPage()
+    firstPageContainer.classList.add("display-none");
+    searchPokemonPage.classList.remove("display-block")
+    searchTeamPokemons.style.display = "flex"
+    searchAllPokemons.style.display = "none"
     toggleMenu()
 });
 

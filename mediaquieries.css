@@ -4,6 +4,10 @@
         max-width: 600px;
         margin: 0 auto;
       }
+      .nav-flex-container {
+        max-width: 600px;
+        margin: 0 auto;
+      }
 }
 
   /* Desktops */
@@ -19,5 +23,9 @@
     }
     .color-selection-container {
         border-radius: 6px;
+    }
+    .nav-flex-container {
+      max-width: 600px;
+      margin: 0 auto;
     }
   }
