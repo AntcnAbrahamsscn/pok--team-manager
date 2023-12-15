@@ -1,6 +1,5 @@
 const startButton = document.querySelector(".start-button")
 const firstPageContainer = document.querySelector(".first-page-flex-container")
-const teamManagerPage = document.querySelector("#team-manager-page")
 const circleMenu = document.querySelector(".circle-menu")
 const teamNameInput = document.querySelector(".team-name-input")
 const teamName = document.querySelector(".team-name")
@@ -18,8 +17,9 @@ const hamburgerMenuBtn = document.querySelector("#hamburger-menu-btn")
 const navFlexContainer = document.querySelector(".nav-flex-container")
 // Hamburger
 const menuContainer = document.querySelector('.menu-container');
-const teamPokemonPage = document.querySelector('#team-manager-page');
-const searchPokemonPage = document.querySelector('#search-pokemons-page');
+const teamPokemonPage = document.querySelector('.team-manager-page');
+const searchPokemonPage = document.querySelector('.search-pokemons-page');
+const inputVisability = document.querySelector('#input-visability')
 
 
 // Funktion som styr vilken bild som visas på förstasidan.
@@ -70,7 +70,7 @@ startButton.addEventListener("click", (event) => {
     teamNameInput.value = teamNameInput.querySelector(".search-input").value;
     createTeamNameTag();
     hideFirstPage();
-    showTeamManagerPage();
+    showTeamPokemonPage();
     showNavBarTeamPage()
     showNavbar()
 });
@@ -107,34 +107,29 @@ function hideFirstPage() {
 }
 
 function showSecondPage () {
-    searchPokemonPage.style.display = "block"
+    searchPokemonPage.classList.add("display-block")
 }
 function hideSecondPage () {
-    searchPokemonPage.style.display = "none"
+    searchPokemonPage.classList.remove = "display-block"
 }
-
-function showTeamManagerPage() {
-    teamManagerPage.style.display = "block";
+function showTeamPokemonPage() {
+    teamPokemonPage.classList.add("display-block");
 }
 
 // Hamburger
-// const menuContainer = document.querySelector('.menu-container');
-// const pokemonPageContainer = document.getElementById('pokemon-page-container')
-
-function toggleMenu(page) {
+function toggleMenu() {
     menuContainer.classList.toggle('show-menu');
-    teamManagerPage.classList.toggle('hide-page', page === 'team-manager-page');
-    searchPokemonPage.classList.toggle('hide-page', page === 'search-pokemons-page');
+    teamPokemonPage.classList.toggle('display-none');
+    searchPokemonPage.classList.toggle('display-none');
+    inputVisability.classList.toggle('display-none')
 }
-
-hamburgerMenuBtn.addEventListener('click', () => toggleMenu(teamManagerPage));
-// hamburgerMenuBtn.addEventListener('click', () => toggleMenu(searchPokemonPage));
+hamburgerMenuBtn.addEventListener('click', toggleMenu);
 
 
 //  Byta vyer
 document.getElementById('all-pokemons-link').addEventListener('click', function() {
     console.log('All pokemons link clicked!');
-    teamManagerPage.style.display = "none"
+    teamPokemonPage.classList.remove("display-block")
     hideFirstPage()
     showSecondPage()
     toggleMenu()
@@ -142,20 +137,11 @@ document.getElementById('all-pokemons-link').addEventListener('click', function(
 
 document.getElementById('team-pokemons-link').addEventListener('click', function() {
     console.log('Team pokemons link clicked!');
-    teamManagerPage.style.display = "block"
+    teamPokemonPage.classList.add("display-block")
+    searchPokemonPage.classList.remove("display-block")
     hideFirstPage()
     hideSecondPage()
     toggleMenu()
 });
-// document.getElementById('quit-link').addEventListener('click', function() {
-//     console.log('Quit link clicked!');
-//     teamManagerPage.style.display = "none"
-//     hideFirstPage()
-//     hideSecondPage()
-//     showFirstPage()
-//     toggleMenu()
-//     circleMenu.style.display = "none"
-//     // pok.style.display = "none"
-//     hideNavbar()
-// });
+
 

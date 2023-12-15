@@ -165,16 +165,13 @@
 }
 /* CSS */
 
-.display-none {
-    display: none;
+#input-visability {
+    flex-grow: 1;
 }
 
-.display-flex {
-    display: flex;
-}
 .nav-flex-container {
     display: none;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     padding: 25px;
 }
 .circle-menu {
@@ -199,14 +196,14 @@
     margin: 0.2em;
 }
 
-  #team-manager-page {
+  .team-manager-page {
     display: none;
-    padding: 25px;
+    padding: 0 25px 25px 25px;
   }
 
   .search-pokemons-page {
     display: none;
-    padding: 25px;
+    padding: 0 25px 25px 25px;
 }
 
   
@@ -278,3 +275,14 @@
     margin-top: 0.4em;
 }
 
+
+.display-flex {
+    display: flex;
+}
+
+.display-block {
+    display: block;
+}
+.display-none {
+    display: none;
+}
