@@ -28,7 +28,7 @@ h2 {
 }
 h4 {
     font-weight: 600;
-    /* background-color: var(--red); */
+    background-color: var(--red);
     color: var(--white);
     font-size: 2em;
     text-align: center;
@@ -36,6 +36,8 @@ h4 {
     border-radius: 4px;
     padding: 0.2em 0;
     margin-bottom: 0.3em;
+    margin-top: 0;
+    margin-bottom: 0;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 
 }
