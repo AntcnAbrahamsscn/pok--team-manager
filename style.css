@@ -199,6 +199,13 @@
     padding: 25px;
   }
 
+  .search-pokemons-page {
+    display: none;
+    padding: 25px;
+}
+
+  
+
   .pokemon-item {
     background-color: rgb(217, 208, 208);
     border-radius: 4px;
@@ -212,7 +219,7 @@
     color: var(--white)
   }
 /* Hamburger */
-#menu-container {
+.menu-container {
     display: none;
     top: 80px;
     height: 80vh;
@@ -220,20 +227,25 @@
     margin: 0 auto;
     background-color: var(--white);
     z-index: 2;
-    transition: 0.5s; 
+    opacity: 0; /* Initially set the opacity to 0 */
+    transition: opacity 0.5s; /* Add a transition for the opacity property */
 }
 
-#menu-container.show-menu {
+.menu-container.show-menu {
     display: flex;
     flex-direction: column;
+    opacity: 1; /* Set opacity to 1 when the menu is shown */
 }
 
 #pokemon-page-container.hide-page {
     display: none;
 }
 
-#menu-container ul {
-    /* padding-inline-start: 0; */
+.hide-page {
+    display: none;
+}
+
+.menu-container ul {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -243,10 +255,9 @@
     list-style: none;
 }
 
-#menu-container a {
+.menu-container a {
     text-decoration: none;
     list-style: none;
-    background-color: var(--red);
     color: var(--white);
     text-align: center;
     padding:0.4em 0;
@@ -254,11 +265,11 @@
     font-size: 1.4em;
     font-weight: 700;
     box-sizing: border-box;
-    /* margin: 0.7em 0; */
     width: 300px;
     margin: 0.7em auto
 }
 
-#menu-container a {
+.menu-container a {
     margin-top: 0.4em;
 }
+

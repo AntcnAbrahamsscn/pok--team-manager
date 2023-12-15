@@ -11,6 +11,9 @@ const colorSelectionContainer = document.querySelector(".color-selection-contain
 const nameContainer = document.querySelector(".name-container")
 const reservesH4 = document.querySelector("#reserves")
 const teamStats = document.querySelector(".team-stats")
+const menuItem = document.querySelector(".menu-item")
+const searchPokemons = document.querySelector("#search-pokemons")
+const searchPokemonPage = document.querySelector(".search-pokemons-page")
 
 
 // Funktion som styr vilken bild som visas på förstasidan.
@@ -43,6 +46,12 @@ themeButtons.forEach(button => {
         reservesH4.classList.add(`theme-${theme}`)
         teamStats.classList.remove('theme-red', 'theme-blue', 'theme-yellow');
         teamStats.classList.add(`theme-${theme}`)
+        document.querySelectorAll('.menu-container a.menu-item').forEach(item => {
+            item.classList.remove('theme-red', 'theme-blue', 'theme-yellow');
+        });
+        document.querySelectorAll('.menu-container a.menu-item').forEach(item => {
+            item.classList.add(`theme-${theme}`);
+        });
 
         currentTheme = theme;
         changePokemonImg(theme)
@@ -69,21 +78,60 @@ function hideFirstPage() {
     firstPageContainer.classList.add("display-none");
 }
 
+function showSecondPage () {
+    searchPokemonPage.style.display = "block"
+}
+
 function showTeamManagerPage() {
     teamManagerPage.style.display = "block";
 }
 
 // Hamburger
-const menuContainer = document.getElementById('menu-container');
+const menuContainer = document.querySelector('.menu-container');
 const pokemonPageContainer = document.getElementById('pokemon-page-container')
-circleMenu.addEventListener('click', toggleMenu);
+// circleMenu.addEventListener('click', toggleMenu);
 
-function toggleMenu() {
+// function toggleMenu() {
+//     menuContainer.classList.toggle('show-menu');
+//     pokemonPageContainer.classList.toggle('hide-page')
+//     searchPokemons.classList.toggle("hide")
+
+// }
+
+// Toggle function that handles both pages
+function toggleMenu(page) {
+    const menuContainer = document.querySelector('.menu-container');
+    const pokemonPageContainer = document.getElementById('pokemon-page-container');
+    const searchPokemonPage = document.querySelector('.search-pokemons-page');
+
+    // Toggle show-menu class on menu container
     menuContainer.classList.toggle('show-menu');
-    pokemonPageContainer.classList.toggle('hide-page')
 
+    // Toggle hide-page class on respective pages
+    pokemonPageContainer.classList.toggle('hide-page', page === 'team-manager');
+    searchPokemonPage.classList.toggle('hide-page', page === 'search-pokemons');
 }
-const menuBtn = document.getElementById('menuBtn');
 
-// Add a click event listener to the menu button
-menuBtn.addEventListener('click', toggleMenu);
+// Event listeners for toggle buttons
+teamMenuBtn.addEventListener('click', () => toggleMenu('team-manager'));
+searchMenuBtn.addEventListener('click', () => toggleMenu('search-pokemons'));
+
+// function toggleMenu() {
+//     menuContainer.classList.toggle('show-menu');
+//     pokemonPageContainer.classList.toggle('hide-page');
+//     searchPokemonPage.classList.toggle('hide');
+// }
+
+// const teamMenuBtn = document.getElementById('teamMenuBtn');
+// teamMenuBtn.addEventListener('click', toggleMenu);
+
+// const searchMenuBtn = document.getElementById('searchMenuBtn');
+// searchMenuBtn.addEventListener('click', toggleMenu);
+
+//  Byta vy till all pokemons
+document.getElementById('all-pokemons-link').addEventListener('click', function() {
+    console.log('All pokemons link clicked!');
+    teamManagerPage.style.display = "none"
+    hideFirstPage()
+    showSecondPage()
+});
