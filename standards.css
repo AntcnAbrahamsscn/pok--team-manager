@@ -110,3 +110,11 @@ h4 {
     width: 1.3em;
     fill: #b4b4b4;
   }
+
+  #search-all-pokemons {
+    display:none;
+  }
+
+  #search-team-pokemons {
+    display: none;
+  }
