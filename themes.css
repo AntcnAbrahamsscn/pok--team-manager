@@ -1,0 +1,37 @@
+/* Colors */
+:root {
+    --red: #fe4a49;
+    --yellow: #f9a03f;
+    --blue: #28536b;
+    --white: #ebebeb;
+    --green: #0c7c59;
+    --gray: #545863;
+    --purple: #d56aa0;
+    --normal: #c2c1a5;
+  }
+
+/* Theme-colors */
+.theme-red {
+    background-color: var(--red);
+
+}
+.theme-blue {
+    background-color: var(--blue);
+}
+
+.theme-yellow {
+    background-color: var(--yellow);
+}
+
+.theme-green {
+    background-color: var(--green);
+}
+.theme-gray {
+    background-color: var(--gray);
+}
+.theme-purple {
+    background-color: var(--purple);
+}
+.theme-normal {
+    background-color: var(--normal);
+}

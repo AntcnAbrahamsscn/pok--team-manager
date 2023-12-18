@@ -1,4 +1,4 @@
-// Variabler för förstasidan
+// Variabler för första sidan
 const startButton = document.querySelector(".start-button")
 const firstPageContainer = document.querySelector(".first-page-flex-container")
 const themeButtons = document.querySelectorAll('.theme-btn');
@@ -6,13 +6,13 @@ const h1Fp = document.querySelector('.h1-fp');
 const h2Fp = document.querySelector(".h2-fp");
 const colorSelectionContainer = document.querySelector(".color-selection-container");
 
-// Variabler för Team Manager Page
+// Variabler för team manager sidan
 const nameContainer = document.querySelector(".name-container")
 const reservesH4 = document.querySelector(".reserves")
 const teamStats = document.querySelector(".team-stats")
 const searchTeamPokemons = document.querySelector("#search-team-pokemons")
 
-// Variabler för Search All Pokemons Page
+// Variabler för search all sidan
 const searchAllPokemons = document.querySelector("#search-all-pokemons")
 const searchPokemonPage = document.querySelector('.search-pokemons-page');
 
@@ -27,7 +27,7 @@ const hamburgerMenuBtn = document.querySelector("#hamburger-menu-btn")
 const navFlexContainer = document.querySelector(".nav-flex-container")
 
 
-// Funktion som styr vilken bild som visas på förstasidan.
+// Byter bild beroende på vilket tema
 function changePokemonImg(theme) {
     const pokemonImage = document.getElementById('pokemon-image-fp');
     if (theme === 'red') {
@@ -39,7 +39,7 @@ function changePokemonImg(theme) {
     }
 }
 
-// Ändrar tema beroende på vilken knapp man trycker på.
+// Byter tema beroende vilken knapp man trycker på
 let currentTheme;
 
 themeButtons.forEach(button => {
@@ -82,14 +82,14 @@ startButton.addEventListener("click", (event) => {
     navFlexContainer.style.display = "flex"    
 });
 
-// Shows navbar on the team manager page
+// Visar navbar på team manager sidan
 function showNavBarTeamPage() {
     searchTeamPokemons.style.display = "flex"
     searchAllPokemons.style.display = "none"
     circleMenu.style.display = "flex"
 }
 
-// Creates the Team Nametag
+// Skapar namntaggen beroende på vilket namn man skrev in i input på första sidan
 function createTeamNameTag() {
     const teamTag = document.createElement("h4");
     teamTag.classList.add(`theme-${currentTheme}`);
@@ -97,7 +97,7 @@ function createTeamNameTag() {
     nameContainer.append(teamTag);
 }
 
-// Hamburgarmeny
+// Hamburgerr menu
 function toggleMenu() {
     menuContainer.classList.toggle('show-menu');
     teamPokemonPage.classList.toggle('display-none');
@@ -110,7 +110,7 @@ function toggleMenu() {
 hamburgerMenuBtn.addEventListener('click', toggleMenu);
 
 
-//  Byta vyer
+//  Byter vyer
 document.getElementById('all-pokemons-link').addEventListener('click', function() {
     console.log('All pokemons link clicked!');
     teamPokemonPage.classList.remove("display-block")
