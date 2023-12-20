@@ -1,3 +1,10 @@
+export { fetchPokemonData, handleSearch, applyTypeColor};
+import {addToTeam} from "./myteam.js";
+
+// Variabler för search all sidan
+const pokemonAllContainer = document.querySelector(".pokemon-container");
+const maxResults = 6;
+
 // Define fetchPokemonData before handleSearch
 async function fetchPokemonData(pokemonName) {
   try {
@@ -11,17 +18,22 @@ async function fetchPokemonData(pokemonName) {
 
 document.querySelector('#pokemon-search-all-input').addEventListener('input', handleSearch);
 
-// Variabler för search all sidan
-const pokemonAllContainer = document.querySelector(".pokemon-container");
-const maxResults = 6;
 
-function lowerCaseName(string) {
-  return string.toLowerCase();
-}
+// function lowerCaseName(string) {
+//   return string.toLowerCase();
+// }
 
 async function handleSearch(e) {
   const searchTerm = e.target.value.toLowerCase();
   let displayedResults = 0;
+
+
+  // Nickname
+  document.querySelector('#pokemon-search-all-input').addEventListener('input', function (e) {
+    isUpdatingNickname = true; // Set the flag when the search input is being updated
+    handleSearch(e);
+    isUpdatingNickname = false; // Reset the flag after the search input has been handled
+});
 
   pokemonAllContainer.innerHTML = '';
 
@@ -36,7 +48,7 @@ async function handleSearch(e) {
     const matchingPokemon = data.results.filter(pokemon => pokemon.name.includes(searchTerm));
 
     if (matchingPokemon.length === 0) {
-      console.log('No matching Pokemon found.');
+      console.log("no matching Poekmon found");
     }
 
     for (const pokemon of matchingPokemon) {
@@ -48,7 +60,7 @@ async function handleSearch(e) {
       displayedResults++;
     }
   } catch (err) {
-    console.log('Error fetching Pokemon list', err);
+    console.log("error fetching Pokemon list", err);
   }
 }
 
@@ -61,7 +73,8 @@ function createPokemonElement(data) {
   const nameElement = document.createElement("h5");
   const abilitiesElement = document.createElement("p");
   const typesElement = document.createElement("p");
-  const nicknameInput = document.createElement("input")
+  // const nicknameInput = document.createElement("input")
+  const buttonContainer = document.createElement("div")
   const buttonElement = document.createElement("button");
 
   // Ger elementen innehåll beroende på värdet från API
@@ -84,20 +97,25 @@ function createPokemonElement(data) {
   nameElement.classList.add("pokemon-name");
   abilitiesElement.classList.add("pokemon-abilities");
   typesElement.classList.add("pokemon-types");
-  nicknameInput.classList.add("nickname-input")
-  buttonElement.classList.add("add-to-team-button");
+  // nicknameInput.classList.add("nickname-input")
+  buttonElement.classList.add("button-pokemon-style");
+  buttonContainer.classList.add("buttons-search-all-container")
 
   // Lägger till elementen
   pokemonContainer.appendChild(imgElement);
   infoContainer.appendChild(nameElement);
-  infoContainer.appendChild(nicknameInput)
+  // infoContainer.appendChild(nicknameInput)
   infoContainer.appendChild(abilitiesElement);
   infoContainer.appendChild(typesElement);
-  infoContainer.appendChild(buttonElement);
+  buttonContainer.appendChild(buttonElement)
+  // infoContainer.appendChild(buttonElement);
   pokemonContainer.appendChild(infoContainer);
-
-  // Lägger till i containern 
+  pokemonContainer.appendChild(buttonContainer)
   pokemonAllContainer.appendChild(pokemonContainer);
+  // Kallar på funktionen som lägger till pokemon i en array
+  buttonElement.addEventListener('click', function () {
+    addToTeam(data);
+  });
 }
 
 // Funktion som ändrar bakgrund beroende på vilken type pokemonen är
@@ -112,7 +130,7 @@ function applyTypeColor(pokemonContainer, types) {
     pokemonContainer.classList.add("theme-green");
   } else if (types.includes("rock") || types.includes("dark")|| types.includes("ghost")) {
     pokemonContainer.classList.add("theme-gray");
-  } else if (types.includes("psychic")) {
+  } else if (types.includes("pshycic") || types.includes("poison")|| types.includes("fairy")) {
     pokemonContainer.classList.add("theme-purple");
   } else if (types.includes("normal")) {
     pokemonContainer.classList.add("theme-normal");

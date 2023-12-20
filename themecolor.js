@@ -9,7 +9,7 @@ const colorSelectionContainer = document.querySelector(".color-selection-contain
 // Variabler för team manager sidan
 const nameContainer = document.querySelector(".name-container")
 const reservesH4 = document.querySelector(".reserves")
-const teamStats = document.querySelector(".team-stats")
+const lineUpContainer = document.querySelector(".line-up-container")
 const searchTeamPokemons = document.querySelector("#search-team-pokemons")
 
 // Variabler för search all sidan
@@ -57,8 +57,8 @@ themeButtons.forEach(button => {
         document.querySelectorAll('.reserves').forEach(reserve => {
             reserve.classList.add(`theme-${theme}`);
         });
-        teamStats.classList.remove('theme-red', 'theme-blue', 'theme-yellow');
-        teamStats.classList.add(`theme-${theme}`)
+        lineUpContainer.classList.remove('theme-red', 'theme-blue', 'theme-yellow');
+        lineUpContainer.classList.add(`theme-${theme}`)
         document.querySelectorAll('.menu-container a.menu-item').forEach(item => {
             item.classList.remove('theme-red', 'theme-blue', 'theme-yellow');
         });

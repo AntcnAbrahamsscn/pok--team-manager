@@ -1,31 +1,63 @@
 /* Small Screens */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    #team-manager-page, .search-pokemons-page {
+    #team-manager-page,
+    .search-pokemons-page {
         max-width: 600px;
         margin: 0 auto;
-      }
-      .nav-flex-container {
+    }
+    .nav-flex-container {
         max-width: 600px;
         margin: 0 auto;
-      }
+    }
+
+    .team-pokemons-container,
+    .reserves-pokemons-container,
+    .pokemon-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .pokemon-box-container {
+        flex-basis: 48%;
+        box-sizing: border-box;
+    }
+    /* .pokemon-container .pokemon-box-container:first-child {
+      flex-basis: 100%;
+
+    } */
 }
 
-  /* Desktops */
+/* Desktops */
 @media only screen and (min-width: 992px) {
-    #team-manager-page, .search-pokemons-page {
-        max-width: 600px;
+    #team-manager-page,
+    .search-pokemons-page {
+        max-width: 990px;
         margin: 0 auto;
-      }
-      .first-page-flex-container {
-        height: 100%; 
-        width: 600px;
+    }
+    .first-page-flex-container {
+        height: 100%;
+        width: 990px;
         margin: 0 auto;
     }
     .color-selection-container {
         border-radius: 6px;
     }
     .nav-flex-container {
-      max-width: 600px;
-      margin: 0 auto;
+        max-width: 990px;
+        margin: 0 auto;
     }
-  }
+
+    .team-pokemons-container,
+    .reserves-pokemons-container,
+    .pokemon-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .pokemon-box-container {
+        flex-basis: 32%;
+        box-sizing: border-box;
+    }
+}
