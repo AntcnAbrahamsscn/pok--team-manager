@@ -1,20 +1,24 @@
 import { fetchPokemonData, handleSearch, applyTypeColor } from "./pokemon.js";
-// import { generateUniqueId } from "./pokemon.js";
 
-export { addToTeam, uniqueIdCounter, renderTeam, renderReserves, myTeam, myReserves };
+export {
+    addToTeam,
+    uniqueIdCounter,
+    renderTeam,
+    renderReserves,
+    myTeam,
+    myReserves,
+};
 const teamPokemonContainer = document.querySelector(".team-pokemons-container");
 const reservesPokemonContainer = document.querySelector(
     ".reserves-pokemons-container"
 );
 
-const lineUpContainer = document.querySelector('.line-up-container');
-
-
+const lineUpContainer = document.querySelector(".line-up-container");
 const myTeam = [];
 const myTeamLimit = 3;
 const myReserves = [];
 
-// Nickname input
+// Nickname input för att inte störa inputen på search all page
 let isUpdatingNickname = false;
 
 // Skapar pokemon-boxen
@@ -63,16 +67,17 @@ function createTeamPokemonElement(data, index) {
 
     // Nickname
     nicknameParagraph.textContent = "Nickname: " + (data.nickname || "");
-// const nicknameInput = document.createElement("input");
-nicknameInput.classList.add("nickname-input");
+    nicknameInput.classList.add("nickname-input");
 
-nicknameInput.addEventListener("input", function () {
-    if (!isUpdatingNickname) {
-        const newNickname = nicknameInput.value.trim();
-        updateNickname(data, newNickname);
-        nicknameParagraph.textContent = newNickname ? "Nickname: " + newNickname : "";
-    }
-});
+    nicknameInput.addEventListener("input", function () {
+        if (!isUpdatingNickname) {
+            const newNickname = nicknameInput.value.trim();
+            updateNickname(data, newNickname);
+            nicknameParagraph.textContent = newNickname
+                ? "Nickname: " + newNickname
+                : "";
+        }
+    });
 
     pokemonContainer.appendChild(imgElement);
     pokemonInfoContainer.appendChild(nameElement);
@@ -86,7 +91,7 @@ nicknameInput.addEventListener("input", function () {
     console.log(pokemonTypes);
     applyTypeColor(pokemonContainer, pokemonTypes);
 
-    // Tabort-knapp
+    // Tabort-knapp oå
     removeButton.addEventListener("click", function () {
         removeFromTeam(data);
     });
@@ -96,25 +101,21 @@ nicknameInput.addEventListener("input", function () {
     moveToReservesButton.addEventListener("click", function () {
         moveToReserves(data);
     });
-    // pokemonInfoContainer.appendChild(moveToReservesButton);
 
-   // Flyttar upp
-   moveUpButton.addEventListener("click", function () {
-    const id = data.id;
-    moveUpInTeam(data.id, index);
-});
+    // Flyttar upp
+    moveUpButton.addEventListener("click", function () {
+        moveUpInTeam(index);
+    });
+    // Flyttar ner
+    moveDownButton.addEventListener("click", function () {
+        moveDownInTeam(index);
+    });
 
-moveDownButton.addEventListener("click", function () {
-    const id = data.id;
-    moveDownInTeam(data.id, index);
-});
-
-buttonsContainer.appendChild(removeButton);
-buttonsContainer.appendChild(moveToReservesButton);
-buttonsContainer.appendChild(moveUpButton);
-buttonsContainer.appendChild(moveDownButton); // Add moveDownButton to the container
-// pokemonInfoContainer.appendChild(moveDownButton) // Remove this line
-pokemonContainer.appendChild(buttonsContainer);
+    buttonsContainer.appendChild(removeButton);
+    buttonsContainer.appendChild(moveToReservesButton);
+    buttonsContainer.appendChild(moveUpButton);
+    buttonsContainer.appendChild(moveDownButton); 
+    pokemonContainer.appendChild(buttonsContainer);
 
     return pokemonContainer;
 }
@@ -180,14 +181,20 @@ function createReservePokemonElement(data) {
     kickFromReservesButton.addEventListener("click", function () {
         kickFromReserves(data);
     });
-    
+
     moveUpInReservesButton.addEventListener("click", function () {
-        moveUpInReserves(data);
+        const indexInReserves = myReserves.indexOf(data);
+        moveUpInReserves(indexInReserves);
     });
     
     moveDownInReservesButton.addEventListener("click", function () {
-        moveDownInReserves(data);
+        const indexInReserves = myReserves.indexOf(data);
+        moveDownInReserves(indexInReserves);
     });
+
+    moveUpInReservesButton.classList.add("button-pokemon-style", "move-up-button");
+    moveDownInReservesButton.classList.add("button-pokemon-style", "move-down-button");
+
     buttonsReservesContainer.appendChild(kickFromReservesButton);
     buttonsReservesContainer.appendChild(moveUpInReservesButton);
     buttonsReservesContainer.appendChild(moveDownInReservesButton);
@@ -195,7 +202,7 @@ function createReservePokemonElement(data) {
 
     return pokemonContainer;
 }
-
+// Funktion som tar bort pokemon från laget, utan att lägga den i reserver
 function removeFromTeam(pokemon) {
     const index = myTeam.indexOf(pokemon);
     if (index !== -1) {
@@ -210,7 +217,7 @@ function removeFromTeam(pokemon) {
         renderTeam();
     }
 }
-
+// Funktion som flyttar pokemon från laget till reserver (myReserves.push(movedPokemon))
 function moveToReserves(pokemon) {
     const indexInTeam = myTeam.indexOf(pokemon);
 
@@ -223,91 +230,108 @@ function moveToReserves(pokemon) {
             if (newTeamMember) {
                 myTeam.push(newTeamMember);
             }
-            // Shift för att ta bort den reservern som ligger högst upp sen pushas den upp till myTeam.
         }
 
         renderTeam();
         renderReserves();
     }
 }
-// FLyttar pokemonen upp
-function moveUpInTeam(id) {
-    const index = myTeam.findIndex((pokemon) => pokemon.id === id);
-
+// FLyttar pokemonen upp i laget
+function moveUpInTeam(index) {
     if (index > 0) {
         const movedPokemon = myTeam.splice(index, 1)[0];
         myTeam.splice(index - 1, 0, movedPokemon);
 
         console.log(`Moved ${movedPokemon.name} up in team.`);
-        console.log('Updated myTeam:', myTeam);
+        console.log("Updated myTeam:", myTeam);
 
         renderTeam();
         renderReserves();
     }
 }
 
-function moveDownInTeam(id) {
-    const index = myTeam.findIndex((pokemon) => pokemon.id === id);
-
+// Flyttar pokemon ner i laget
+function moveDownInTeam(index) {
     if (index !== -1 && index < myTeam.length - 1) {
         const movedPokemon = myTeam.splice(index, 1)[0];
         myTeam.splice(index + 1, 0, movedPokemon);
 
         console.log(`Moved ${movedPokemon.name} down in team.`);
-        console.log('Updated myTeam:', myTeam);
+        console.log("Updated myTeam:", myTeam);
 
         renderTeam();
+        renderReserves();
     }
 }
+// Identifierar knappen som trycks, för att undvika att flytta andra element
+reservesPokemonContainer.addEventListener("click", function (event) {
+    const target = event.target;
+    const pokemonElement = target.closest(".pokemon-box-container");
+
+    if (!pokemonElement) {
+        return; 
+    }
+
+    const indexInReserves = Array.from(reservesPokemonContainer.children).indexOf(pokemonElement);
+
+    if (target.classList.contains("move-up-button")) {
+        moveUpInReserves(indexInReserves);
+    } else if (target.classList.contains("move-down-button")) {
+        moveDownInReserves(indexInReserves);
+    } else if (target.classList.contains("kick-from-reserves-button")) {
+        kickFromReserves(myReserves[indexInReserves]);
+    }
+});
 
 // Renderar myTeam med hjälp av for each som loopar igenom listan och kallar på funktionen som skapar pokemon containern.
 function renderTeam() {
     teamPokemonContainer.innerHTML = "";
-    lineUpContainer.innerHTML = ""; 
+    lineUpContainer.innerHTML = "";
 
     myTeam.forEach((pokemon, index) => {
-        console.log(`Unique ID for ${pokemon.name} in myTeam:`, pokemon.id); 
+        console.log(`Unique ID for ${pokemon.name} in myTeam:`, pokemon.id);
         const teamPokemonElement = createTeamPokemonElement(pokemon, index);
         teamPokemonContainer.appendChild(teamPokemonElement);
     });
-
-    const lineUpMessage = document.createElement("h5")
-    lineUpMessage.style.textAlign = "center"
+    // När laget renderas räknar denna om laget är fullt eller inte.
+    const lineUpMessage = document.createElement("h5");
+    lineUpMessage.style.textAlign = "center";
     if (myTeam.length === myTeamLimit) {
-        lineUpMessage.textContent = "line up complete";
+        lineUpMessage.textContent = "line up is complete";
     } else if (myTeam.length === 2) {
-        lineUpMessage.textContent = "add one more pokemon and your team is ready";
+        lineUpMessage.textContent =
+            "add one more pokemon and your team is ready";
     } else if (myTeam.length === 1) {
-        lineUpMessage.textContent = "add two more pokemon and your team is ready";
-    }else  {
+        lineUpMessage.textContent =
+            "add two more pokemon and your team is ready";
+    } else {
         lineUpMessage.textContent = "add three pokemons to fill your team";
     }
-    lineUpContainer.append(lineUpMessage)
+    lineUpContainer.append(lineUpMessage);
 }
 
 // Lägger till pokemon i myTeam arrayen. Om den är full används pop för att ta bort sista i listan och flytta den till reserves.
 let uniqueIdCounter = 0;
 
 function addToTeam(pokemon) {
-    myTeam.push(pokemon);
+    const copiedPokemon = JSON.parse(JSON.stringify(pokemon));
+    myTeam.push(copiedPokemon);
 
     if (myTeam.length > myTeamLimit) {
         const reservePokemon = myTeam.pop();
         myReserves.push(reservePokemon);
     }
+
     uniqueIdCounter++;
     renderReserves();
     renderTeam();
-    
 }
-// function generateUniqueId() {
-//     return new Date().getTime();
-// }
 
+// Renderar reserv arrayen
 function renderReserves() {
     reservesPokemonContainer.innerHTML = "";
-    myReserves.forEach((pokemon) => {
-        const reservePokemonElement = createReservePokemonElement(pokemon);
+    myReserves.forEach((pokemon, index) => {
+        const reservePokemonElement = createReservePokemonElement(pokemon, index);
         reservesPokemonContainer.appendChild(reservePokemonElement);
     });
 }
@@ -322,26 +346,37 @@ function kickFromReserves(pokemon) {
 }
 
 // Flyttar upp reserver
-function moveUpInReserves(pokemon) {
-    const indexInReserves = myReserves.indexOf(pokemon);
+function moveUpInReserves(index) {
+    console.log("Attempting to move up in reserves at index:", index);
+    if (index > 0 && index < myReserves.length) {
+        const movedPokemon = JSON.parse(JSON.stringify(myReserves[index]));
 
-    if (indexInReserves > 0) {
-        const movedPokemon = myReserves.splice(indexInReserves, 1)[0];
-        myReserves.splice(indexInReserves - 1, 0, movedPokemon);
+        myReserves.splice(index, 1);
+        myReserves.splice(index - 1, 0, movedPokemon);
+
+        console.log(`Moved ${movedPokemon.name} up in reserves.`);
+        console.log("Updated myReserves:", myReserves);
+
+        renderReserves();
+    }
+}
+
+// Move down in reserves
+function moveDownInReserves(index) {
+    console.log("Attempting to move down in reserves at index:", index);
+    if (index >= 0 && index < myReserves.length - 1) {
+        const movedPokemon = JSON.parse(JSON.stringify(myReserves[index]));
+
+        myReserves.splice(index, 1);
+        myReserves.splice(index + 1, 0, movedPokemon);
+
+        console.log(`Moved ${movedPokemon.name} down in reserves.`);
+        console.log("Updated myReserves:", myReserves);
 
         renderReserves();
     }
 }
 
-// Flyttar ner reserver
-function moveDownInReserves(pokemon) {
-    const indexInReserves = myReserves.indexOf(pokemon);
-
-    if (indexInReserves !== -1 && indexInReserves < myReserves.length - 1) {
-        const movedPokemon = myReserves.splice(indexInReserves, 1)[0];
-        myReserves.splice(indexInReserves + 1, 0, movedPokemon);
-
-        renderReserves();
-    }
-}
+// Uppdaterar sidan vid laddning
 renderTeam();
+renderReserves();

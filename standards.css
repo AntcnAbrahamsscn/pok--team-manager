@@ -1,24 +1,23 @@
-html, body {
+html,
+body {
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     background-color: #ebebeb;
     height: 100%;
 }
-
 
 /* Text */
 h1 {
     font-weight: 900;
     background-color: var(--red);
-    color: var(--white)
-
+    color: var(--white);
 }
 
 h2 {
     font-weight: 600;
     background-color: var(--red);
-    color: var(--white)
+    color: var(--white);
 }
 h4 {
     font-weight: 600;
@@ -32,7 +31,8 @@ h4 {
     margin-bottom: 0.3em;
     margin-top: 0;
     margin-bottom: 0;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 /* Input/ button */
@@ -42,12 +42,12 @@ h4 {
     justify-content: space-between;
     text-align: center;
     flex-grow: 1;
-  }
-  .hide {
+}
+.hide {
     display: none;
-  }
+}
 
-  .search-input {
+.search-input {
     font-family: inherit;
     font-size: inherit;
     background-color: var(--white);
@@ -56,163 +56,144 @@ h4 {
     padding: 0.7rem 1rem;
     border-radius: 30px;
     width: 100%;
-    transition: all ease-in-out .5s;
+    transition: all ease-in-out 0.5s;
     margin-right: -2rem;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  }
-  
-  .margin-top {
-    margin-top: 0.5em;
-  }
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
 
-  .search-input:hover, .search-input:focus {
+.margin-top {
+    margin-top: 0.5em;
+}
+
+.search-input:hover,
+.search-input:focus {
     box-shadow: 0 0 1em #00000013;
-  }
-  
-  .search-input:focus {
+}
+
+.search-input:focus {
     outline: none;
     background-color: #f0eeee;
-  }
-  
-  .search-input::-webkit-input-placeholder {
+}
+
+.search-input::-webkit-input-placeholder {
     font-weight: 100;
     color: grey;
-  }
-  
-  .search-input:focus + .search-button {
+}
+
+.search-input:focus + .search-button {
     background-color: #f0eeee;
-  }
-  
-  .search-button {
+}
+
+.search-button {
     border: none;
     background-color: var(--white);
-    margin-top: .1em;
-  }
-  
-  .search-button:hover {
+    margin-top: 0.1em;
+}
+
+.search-button:hover {
     cursor: pointer;
-  }
-  
-  .search-icon {
+}
+
+.search-icon {
     height: 1.3em;
     width: 1.3em;
     fill: #b4b4b4;
-  }
+}
 
-  #search-all-pokemons {
-    display:none;
-  }
-
-  #search-team-pokemons {
+#search-all-pokemons {
     display: none;
-  }
+}
 
+#search-team-pokemons {
+    display: none;
+}
 
-  .pokemon-box-container {
+.pokemon-box-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border-radius: 6px;
-    /* margin-top: 1em; */
     padding: 15px;
     color: var(--white);
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  }
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
 
-  .pokemon-container {
+.pokemon-container {
     display: flex;
     flex-direction: column;
-  
-  }
+}
 
-  h5 {
+h5 {
     font-size: 1.5em;
     margin: 0;
-  }
+}
 
-  .pokemon-info {
-  text-align: center;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-top: 1.5em;
-  }
+.pokemon-info {
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 1.5em;
+}
 
-  .pokemon-info p {
+.pokemon-info p {
     margin: 0;
-  }
+}
 
-  .team-pokemons-container, .reserves-pokemons-container, .pokemon-container {
+.team-pokemons-container,
+.reserves-pokemons-container,
+.pokemon-container {
     display: flex;
     flex-direction: column;
     gap: 1em;
     margin-top: 1em;
-  }
+}
 
-
-  .pokemon-box-container div:first-child {
+.pokemon-box-container div:first-child {
     display: flex;
     align-items: center;
-  }
-  .pokemon-img {
+}
+.pokemon-img {
     width: 130px;
     height: 130px;
     margin: auto auto;
     border-radius: 50px;
-  }
+}
 
-  /* .pokemon-box-container button {
-    border-radius: 5px;
-    background-color: transparent;
-    border: 3px solid var(--white);
-    color: var(--white);
-    padding: 0.4em;
-    font-size: 0.9em;
-    transition: all ease-in-out .2s;
-  } */
-  /* .pokemon-box-container button {
-    margin-top: 0.5em;
-  } */
-
-  /* .pokemon-box-container button:hover {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    background-color: var(--white);
-    color: var(--gray)
-  } */
-
-  .nickname-input {
+.nickname-input {
     border-radius: 50px;
     background-color: transparent;
-    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
     width: 50%;
     margin: 0 auto;
     border: 1px solid var(--white);
     color: var(--white);
     padding: 0.4em;
     margin-bottom: 1em;
-  }
-  .nickname-input::placeholder {
-    color: rgba(255, 255, 255, 0.2)
-  }
+}
+.nickname-input::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+}
 
-  .buttons-container {
+.buttons-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 5px;
     margin-top: 2em;
-  }
+}
 
-  .buttons-reserves-container {
+.buttons-reserves-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 5px;
     margin-top: 1em;
-  }
+}
 
-  .buttons-search-all-container {
+.buttons-search-all-container {
     margin-top: 2em;
-  }
+}
 
 .button-pokemon-style {
     width: 100%;
@@ -222,11 +203,12 @@ h4 {
     border: 1px solid var(--white);
     color: var(--white);
     font-size: 0.9em;
-    transition: all ease-in-out .2s;
+    transition: all ease-in-out 0.2s;
 }
 
 .button-pokemon-style:hover {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     background-color: var(--white);
     color: var(--gray);
 }

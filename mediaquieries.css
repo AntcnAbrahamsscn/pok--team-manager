@@ -15,7 +15,8 @@
     .pokemon-container {
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
+        /* justify-content: space-between; */
+
     }
 
     .pokemon-box-container {
@@ -53,7 +54,7 @@
     .pokemon-container {
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
+        /* justify-content: space-between; */
     }
 
     .pokemon-box-container {

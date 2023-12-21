@@ -5,7 +5,7 @@ import {addToTeam} from "./myteam.js";
 const pokemonAllContainer = document.querySelector(".pokemon-container");
 const maxResults = 6;
 
-// Define fetchPokemonData before handleSearch
+
 async function fetchPokemonData(pokemonName) {
   try {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
@@ -17,11 +17,6 @@ async function fetchPokemonData(pokemonName) {
 }
 
 document.querySelector('#pokemon-search-all-input').addEventListener('input', handleSearch);
-
-
-// function lowerCaseName(string) {
-//   return string.toLowerCase();
-// }
 
 async function handleSearch(e) {
   const searchTerm = e.target.value.toLowerCase();
@@ -73,7 +68,6 @@ function createPokemonElement(data) {
   const nameElement = document.createElement("h5");
   const abilitiesElement = document.createElement("p");
   const typesElement = document.createElement("p");
-  // const nicknameInput = document.createElement("input")
   const buttonContainer = document.createElement("div")
   const buttonElement = document.createElement("button");
 
@@ -97,21 +91,19 @@ function createPokemonElement(data) {
   nameElement.classList.add("pokemon-name");
   abilitiesElement.classList.add("pokemon-abilities");
   typesElement.classList.add("pokemon-types");
-  // nicknameInput.classList.add("nickname-input")
   buttonElement.classList.add("button-pokemon-style");
   buttonContainer.classList.add("buttons-search-all-container")
 
   // Lägger till elementen
   pokemonContainer.appendChild(imgElement);
   infoContainer.appendChild(nameElement);
-  // infoContainer.appendChild(nicknameInput)
   infoContainer.appendChild(abilitiesElement);
   infoContainer.appendChild(typesElement);
   buttonContainer.appendChild(buttonElement)
-  // infoContainer.appendChild(buttonElement);
   pokemonContainer.appendChild(infoContainer);
   pokemonContainer.appendChild(buttonContainer)
   pokemonAllContainer.appendChild(pokemonContainer);
+
   // Kallar på funktionen som lägger till pokemon i en array
   buttonElement.addEventListener('click', function () {
     addToTeam(data);
