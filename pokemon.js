@@ -24,11 +24,11 @@ async function handleSearch(e) {
 
 
   // Nickname
-  document.querySelector('#pokemon-search-all-input').addEventListener('input', function (e) {
-    isUpdatingNickname = true; 
-    handleSearch(e);
-    isUpdatingNickname = false; 
-});
+//   document.querySelector('#pokemon-search-all-input').addEventListener('input', function (e) {
+//     isUpdatingNickname = true; 
+//     handleSearch(e);
+//     isUpdatingNickname = false; 
+// });
 
   pokemonAllContainer.innerHTML = '';
 
@@ -116,16 +116,24 @@ function applyTypeColor(pokemonContainer, types) {
     pokemonContainer.classList.add("theme-yellow");
   } else if (types.includes("fire")) {
     pokemonContainer.classList.add("theme-red");
-  } else if (types.includes("water")) {
+  } else if (types.includes("water") || types.includes("ice")) {
     pokemonContainer.classList.add("theme-blue");
-  } else if (types.includes("bug") || types.includes("grass")) {
+  } else if (types.includes("grass")) {
     pokemonContainer.classList.add("theme-green");
   } else if (types.includes("rock") || types.includes("dark")|| types.includes("ghost")) {
     pokemonContainer.classList.add("theme-gray");
-  } else if (types.includes("pshycic") || types.includes("poison")|| types.includes("fairy")) {
+  } else if (types.includes("pshycic") || types.includes("fairy")) {
     pokemonContainer.classList.add("theme-purple");
-  } else if (types.includes("normal")) {
+  } else if (types.includes("poison")) {
+    pokemonContainer.classList.add("theme-poison");
+  } else if (types.includes("normal")|| types.includes("ground")|| types.includes("dragon")) {
     pokemonContainer.classList.add("theme-normal");
+  }
+  else if (types.includes("fighting")) {
+    pokemonContainer.classList.add("theme-fighting");
+  }
+  else if (types.includes("bug")) {
+    pokemonContainer.classList.add("theme-bug");
   }
 }
 

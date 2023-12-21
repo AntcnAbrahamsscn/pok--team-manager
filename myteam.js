@@ -2,11 +2,12 @@ import { fetchPokemonData, handleSearch, applyTypeColor } from "./pokemon.js";
 
 export {
     addToTeam,
-    uniqueIdCounter,
+    // uniqueIdCounter,
     renderTeam,
     renderReserves,
     myTeam,
     myReserves,
+    // isUpdatingNickname,
 };
 const teamPokemonContainer = document.querySelector(".team-pokemons-container");
 const reservesPokemonContainer = document.querySelector(
@@ -66,7 +67,7 @@ function createTeamPokemonElement(data, index) {
     buttonsContainer.classList.add("buttons-container");
 
     // Nickname
-    nicknameParagraph.textContent = "Nickname: " + (data.nickname || "");
+    nicknameParagraph.textContent = "nickname: " + (data.nickname || "");
     nicknameInput.classList.add("nickname-input");
 
     nicknameInput.addEventListener("input", function () {
@@ -74,7 +75,7 @@ function createTeamPokemonElement(data, index) {
             const newNickname = nicknameInput.value.trim();
             updateNickname(data, newNickname);
             nicknameParagraph.textContent = newNickname
-                ? "Nickname: " + newNickname
+                ? "nickname: " + newNickname
                 : "";
         }
     });
@@ -289,7 +290,7 @@ function renderTeam() {
     lineUpContainer.innerHTML = "";
 
     myTeam.forEach((pokemon, index) => {
-        console.log(`Unique ID for ${pokemon.name} in myTeam:`, pokemon.id);
+        // console.log(`Unique ID for ${pokemon.name} in myTeam:`, pokemon.id);
         const teamPokemonElement = createTeamPokemonElement(pokemon, index);
         teamPokemonContainer.appendChild(teamPokemonElement);
     });
@@ -311,7 +312,7 @@ function renderTeam() {
 }
 
 // Lägger till pokemon i myTeam arrayen. Om den är full används pop för att ta bort sista i listan och flytta den till reserves.
-let uniqueIdCounter = 0;
+// let uniqueIdCounter = 0;
 
 function addToTeam(pokemon) {
     const copiedPokemon = JSON.parse(JSON.stringify(pokemon));
@@ -322,7 +323,7 @@ function addToTeam(pokemon) {
         myReserves.push(reservePokemon);
     }
 
-    uniqueIdCounter++;
+    // uniqueIdCounter++;
     renderReserves();
     renderTeam();
 }

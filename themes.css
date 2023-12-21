@@ -5,9 +5,12 @@
     --blue: #28536b;
     --white: #ebebeb;
     --green: #0c7c59;
+    --bug: #50c079;
     --gray: #545863;
     --purple: #d56aa0;
     --normal: #747460;
+    --poison: #87355e;
+    --fighting: #941313;
   }
 
 /* Theme-colors */
@@ -34,4 +37,13 @@
 }
 .theme-normal {
     background-color: var(--normal);
+}
+.theme-poison {
+    background-color: var(--poison);
+}
+.theme-fighting {
+    background-color: var(--fighting);
+}
+.theme-bug {
+    background-color: var(--bug);
 }

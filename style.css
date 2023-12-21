@@ -1,6 +1,6 @@
 .first-page-flex-container {
-    height: 100%; 
-    justify-content: space-between; 
+    height: 100%;
+    justify-content: space-between;
     display: flex;
     flex-direction: column;
 }
@@ -11,8 +11,6 @@
     flex-direction: column;
     align-items: center;
     flex-grow: 1;
-    /* padding-top: 4em; */
-    /* margin-top: 20%; */
 }
 
 .img-text-container h1,
@@ -24,20 +22,16 @@
     padding: 0 1em;
     border: 4px solid var(--white);
     background-clip: padding-box;
-    position: relative; 
-    
-
+    position: relative;
 }
 
-
 .img-text-container h1 {
-    transform: rotate(-7deg); 
-    z-index: 2; 
-
+    transform: rotate(-7deg);
+    z-index: 2;
 }
 
 .img-text-container h2 {
-    transform: rotate(2deg); 
+    transform: rotate(2deg);
     font-size: 1.3em;
     padding-top: 0.3em;
     padding-bottom: 0.3em;
@@ -46,15 +40,14 @@
 .img-text-container img {
     position: relative;
     top: 2.8em;
-    z-index: 1; 
-    margin-top: -1em; 
+    z-index: 1;
+    margin-top: -1em;
     height: 338px;
 }
 
-
 .center-content {
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     height: 100%;
 }
@@ -70,8 +63,6 @@
     width: 100%;
     background-color: var(--red);
 }
-
-
 
 .color-selection-container h3 {
     color: var(--white);
@@ -89,7 +80,6 @@
     /* max-width: 250px; */
     margin: 0 auto;
     justify-content: space-between;
-    
 }
 
 .color-content {
@@ -98,7 +88,6 @@
     height: 5em;
     width: 5em;
     transition: 0.05s;
-
 }
 
 .color-content:hover {
@@ -126,49 +115,46 @@
     background-position-y: 8px;
     background-color: #4282a4;
     transition: 0.05s;
-
-
 }
 .yellow-img {
     background-image: url(assets/img/pokemon-yellow.png);
     background-repeat: no-repeat;
-    background-size:100% auto;
+    background-size: 100% auto;
     background-color: var(--yellow);
     background-position: center center;
     background-color: #f9b56c;
     transition: 0.05s;
-
 }
 
 .yellow-img:hover {
-        transform: scale(1.2);
-        transition: 0.15s ease-in-out;
-        background-size: 150% auto;
-        background-color: var(--yellow);
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transform: scale(1.2);
+    transition: 0.15s ease-in-out;
+    background-size: 150% auto;
+    background-color: var(--yellow);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
 
-    }
-    
-    .red-img:hover {
-        background-position: center center;
-        background-position-x: 6px;
-        background-position-y: 8px;
-        background-size: 150% auto;
-        transform: scale(1.2);
-        transition: 0.15s ease-in-out;
-        background-color: var(--red);
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+.red-img:hover {
+    background-position: center center;
+    background-position-x: 6px;
+    background-position-y: 8px;
+    background-size: 150% auto;
+    transform: scale(1.2);
+    transition: 0.15s ease-in-out;
+    background-color: var(--red);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
 
-    }
-    
-    .blue-img:hover {
-        background-size: 150% auto;
-        background-size: 150% ;
-        transform: scale(1.2);
-        transition: 0.15s ease-in-out;
-        background-color: var(--blue);
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-
+.blue-img:hover {
+    background-size: 150% auto;
+    background-size: 150%;
+    transform: scale(1.2);
+    transition: 0.15s ease-in-out;
+    background-color: var(--blue);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 /* CSS */
 
@@ -193,8 +179,8 @@
     align-items: center;
     justify-content: center;
     z-index: 10000;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .menu-line {
@@ -203,39 +189,37 @@
     border-radius: 50px;
     width: 2em;
     margin: 0.2em;
-    transition: 0.3s; 
-
+    transition: 0.3s;
 }
 
-  .team-manager-page {
+.team-manager-page {
     display: none;
     padding: 0 25px 25px 25px;
-    transition: opacity 0.5s; 
-
-  }
-
-  .search-pokemons-page {
-    display: none;
-    padding: 0 25px 25px 25px;
-    transition: opacity 0.5s; 
-
+    transition: opacity 0.5s;
 }
 
-  .pokemon-item {
+.search-pokemons-page {
+    display: none;
+    padding: 0 25px 25px 25px;
+    transition: opacity 0.5s;
+}
+
+.pokemon-item {
     background-color: rgb(217, 208, 208);
     border-radius: 4px;
     padding: 25px;
     margin: 0.6em 0;
-  }
+}
 
-  .line-up-container {
+.line-up-container {
     padding: 25px;
     border-radius: 4px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     color: var(--white);
     margin: 1em 0;
-  }
-  
+}
+
 /* Hamburger */
 .menu-container {
     display: none;
@@ -245,40 +229,40 @@
     margin: 0 auto;
     background-color: var(--white);
     z-index: 2;
-    opacity: 0; 
-    transition: opacity 0.5s; 
+    opacity: 0;
+    transition: opacity 0.5s;
 }
 
 .menu-container.show-menu {
     display: flex;
     flex-direction: column;
-    opacity: 1; 
-    transition: 0.3s; 
+    opacity: 1;
+    transition: 0.3s;
 }
 
 .menu-item {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    transition: 0.3s; 
-
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.3s;
 }
 
 .menu-container .menu-item:first-child {
-    transform: rotate(2.4deg); 
+    transform: rotate(2.4deg);
 }
 .menu-container .menu-item:first-child:hover {
-    transform: rotate(-2.4deg); 
+    transform: rotate(-2.4deg);
 }
 .menu-container .menu-item:nth-child(2) {
-    transform: rotate(-2.1deg); 
+    transform: rotate(-2.1deg);
 }
 .menu-container .menu-item:nth-child(2):hover {
-    transform: rotate(2.1deg); 
+    transform: rotate(2.1deg);
 }
 .menu-container .menu-item:last-child {
-    transform: rotate(2.3deg); 
+    transform: rotate(2.3deg);
 }
 .menu-container .menu-item:last-child:hover {
-    transform: rotate(-2.3deg); 
+    transform: rotate(-2.3deg);
 }
 
 #pokemon-page-container.hide-page {
@@ -304,13 +288,13 @@
     list-style: none;
     color: var(--white);
     text-align: center;
-    padding:0.4em 0;
+    padding: 0.4em 0;
     border-radius: 4px;
     font-size: 1.4em;
     font-weight: 700;
     box-sizing: border-box;
     width: 300px;
-    margin: 0.7em auto
+    margin: 0.7em auto;
 }
 
 .menu-container a {
@@ -320,15 +304,14 @@
 .cross .menu-line:nth-child(1) {
     transform: rotate(-45deg) translate(-8px, 8px);
 }
-  
+
 .cross .menu-line:nth-child(2) {
     opacity: 0;
 }
-  
+
 .cross .menu-line:nth-child(3) {
     transform: rotate(45deg) translate(-8px, -8px);
 }
-
 
 #search-team-pokemons {
     display: none;
@@ -336,7 +319,6 @@
 #search-all-pokemons {
     display: none;
 }
-
 
 .display-flex {
     display: flex;
