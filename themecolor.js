@@ -1,3 +1,6 @@
+import { renderTeam, renderReserves, myReserves, myTeam } from "./myteam.js";
+
+
 // Variabler för första sidan
 const startButton = document.querySelector(".start-button")
 const firstPageContainer = document.querySelector(".first-page-flex-container")
@@ -130,6 +133,37 @@ document.getElementById('team-pokemons-link').addEventListener('click', function
     searchTeamPokemons.style.display = "flex"
     searchAllPokemons.style.display = "none"
     toggleMenu()
+});
+
+document.getElementById('quit-link').addEventListener('click', function() {
+    console.log('Quit link clicked!');
+    teamPokemonPage.classList.remove("display-block");
+    searchPokemonPage.classList.remove("display-block");
+    firstPageContainer.classList.remove("display-none");
+    searchTeamPokemons.style.display = "none";
+    searchAllPokemons.style.display = "none";
+    toggleMenu();
+});
+
+document.getElementById('quit-link').addEventListener('click', function() {
+    console.log('Quit link clicked!');
+    
+    teamNameInput.value = "";
+    nameContainer.innerHTML = "";
+
+    myTeam.length = 0;
+    myReserves.length = 0;
+
+    // Renderar den nollställda laguppställningen
+    renderTeam();
+    renderReserves();
+
+    // Visar förstasidan
+    teamPokemonPage.classList.remove("display-block");
+    searchPokemonPage.classList.remove("display-block");
+    firstPageContainer.classList.remove("display-none");
+    searchTeamPokemons.style.display = "none";
+    searchAllPokemons.style.display = "none";
 });
 
 

@@ -30,9 +30,9 @@ async function handleSearch(e) {
 
   // Nickname
   document.querySelector('#pokemon-search-all-input').addEventListener('input', function (e) {
-    isUpdatingNickname = true; // Set the flag when the search input is being updated
+    isUpdatingNickname = true; 
     handleSearch(e);
-    isUpdatingNickname = false; // Reset the flag after the search input has been handled
+    isUpdatingNickname = false; 
 });
 
   pokemonAllContainer.innerHTML = '';

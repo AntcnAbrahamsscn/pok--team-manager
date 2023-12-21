@@ -1,9 +1,14 @@
 import { fetchPokemonData, handleSearch, applyTypeColor } from "./pokemon.js";
-export { addToTeam };
+// import { generateUniqueId } from "./pokemon.js";
+
+export { addToTeam, uniqueIdCounter, renderTeam, renderReserves, myTeam, myReserves };
 const teamPokemonContainer = document.querySelector(".team-pokemons-container");
 const reservesPokemonContainer = document.querySelector(
     ".reserves-pokemons-container"
 );
+
+const lineUpContainer = document.querySelector('.line-up-container');
+
 
 const myTeam = [];
 const myTeamLimit = 3;
@@ -13,7 +18,7 @@ const myReserves = [];
 let isUpdatingNickname = false;
 
 // Skapar pokemon-boxen
-function createTeamPokemonElement(data) {
+function createTeamPokemonElement(data, index) {
     const pokemonContainer = document.createElement("div");
     const pokemonInfoContainer = document.createElement("div");
     const imgElement = document.createElement("img");
@@ -58,14 +63,16 @@ function createTeamPokemonElement(data) {
 
     // Nickname
     nicknameParagraph.textContent = "Nickname: " + (data.nickname || "");
+// const nicknameInput = document.createElement("input");
+nicknameInput.classList.add("nickname-input");
 
-    nicknameInput.addEventListener("input", function () {
-        if (!isUpdatingNickname) {
-            const newNickname = nicknameInput.value.trim(); 
-            updateNickname(data, newNickname);
-            nicknameParagraph.textContent = newNickname ? "Nickname: " + newNickname : "";
-        }
-    });
+nicknameInput.addEventListener("input", function () {
+    if (!isUpdatingNickname) {
+        const newNickname = nicknameInput.value.trim();
+        updateNickname(data, newNickname);
+        nicknameParagraph.textContent = newNickname ? "Nickname: " + newNickname : "";
+    }
+});
 
     pokemonContainer.appendChild(imgElement);
     pokemonInfoContainer.appendChild(nameElement);
@@ -91,23 +98,23 @@ function createTeamPokemonElement(data) {
     });
     // pokemonInfoContainer.appendChild(moveToReservesButton);
 
-    // Flyttar upp
-    moveUpButton.addEventListener("click", function () {
-        moveUpInTeam(data);
-    });
-    // pokemonInfoContainer.appendChild(moveUpButton);
+   // Flyttar upp
+   moveUpButton.addEventListener("click", function () {
+    const id = data.id;
+    moveUpInTeam(data.id, index);
+});
 
-    // Flyttar ner
-    moveDownButton.addEventListener("click", function () {
-        moveDownInTeam(data);
-    });
+moveDownButton.addEventListener("click", function () {
+    const id = data.id;
+    moveDownInTeam(data.id, index);
+});
 
-    buttonsContainer.appendChild(removeButton);
-    buttonsContainer.appendChild(moveToReservesButton);
-    buttonsContainer.appendChild(moveUpButton);
-    buttonsContainer.appendChild(moveDownButton);
-    // pokemonInfoContainer.appendChild(moveDownButton)
-    pokemonContainer.appendChild(buttonsContainer);
+buttonsContainer.appendChild(removeButton);
+buttonsContainer.appendChild(moveToReservesButton);
+buttonsContainer.appendChild(moveUpButton);
+buttonsContainer.appendChild(moveDownButton); // Add moveDownButton to the container
+// pokemonInfoContainer.appendChild(moveDownButton) // Remove this line
+pokemonContainer.appendChild(buttonsContainer);
 
     return pokemonContainer;
 }
@@ -224,24 +231,30 @@ function moveToReserves(pokemon) {
     }
 }
 // FLyttar pokemonen upp
-function moveUpInTeam(pokemon) {
-    const indexInTeam = myTeam.indexOf(pokemon);
+function moveUpInTeam(id) {
+    const index = myTeam.findIndex((pokemon) => pokemon.id === id);
 
-    if (indexInTeam > 0) {
-        const movedPokemon = myTeam.splice(indexInTeam, 1)[0];
-        myTeam.splice(indexInTeam - 1, 0, movedPokemon);
+    if (index > 0) {
+        const movedPokemon = myTeam.splice(index, 1)[0];
+        myTeam.splice(index - 1, 0, movedPokemon);
+
+        console.log(`Moved ${movedPokemon.name} up in team.`);
+        console.log('Updated myTeam:', myTeam);
 
         renderTeam();
         renderReserves();
     }
 }
-// FLyttar pokemonen ner
-function moveDownInTeam(pokemon) {
-    const indexInTeam = myTeam.indexOf(pokemon);
 
-    if (indexInTeam !== -1 && indexInTeam < myTeam.length - 1) {
-        const movedPokemon = myTeam.splice(indexInTeam, 1)[0];
-        myTeam.splice(indexInTeam + 1, 0, movedPokemon);
+function moveDownInTeam(id) {
+    const index = myTeam.findIndex((pokemon) => pokemon.id === id);
+
+    if (index !== -1 && index < myTeam.length - 1) {
+        const movedPokemon = myTeam.splice(index, 1)[0];
+        myTeam.splice(index + 1, 0, movedPokemon);
+
+        console.log(`Moved ${movedPokemon.name} down in team.`);
+        console.log('Updated myTeam:', myTeam);
 
         renderTeam();
     }
@@ -250,13 +263,31 @@ function moveDownInTeam(pokemon) {
 // Renderar myTeam med hjälp av for each som loopar igenom listan och kallar på funktionen som skapar pokemon containern.
 function renderTeam() {
     teamPokemonContainer.innerHTML = "";
-    myTeam.forEach((pokemon) => {
-        const teamPokemonElement = createTeamPokemonElement(pokemon);
+    lineUpContainer.innerHTML = ""; 
+
+    myTeam.forEach((pokemon, index) => {
+        console.log(`Unique ID for ${pokemon.name} in myTeam:`, pokemon.id); 
+        const teamPokemonElement = createTeamPokemonElement(pokemon, index);
         teamPokemonContainer.appendChild(teamPokemonElement);
     });
+
+    const lineUpMessage = document.createElement("h5")
+    lineUpMessage.style.textAlign = "center"
+    if (myTeam.length === myTeamLimit) {
+        lineUpMessage.textContent = "line up complete";
+    } else if (myTeam.length === 2) {
+        lineUpMessage.textContent = "add one more pokemon and your team is ready";
+    } else if (myTeam.length === 1) {
+        lineUpMessage.textContent = "add two more pokemon and your team is ready";
+    }else  {
+        lineUpMessage.textContent = "add three pokemons to fill your team";
+    }
+    lineUpContainer.append(lineUpMessage)
 }
 
 // Lägger till pokemon i myTeam arrayen. Om den är full används pop för att ta bort sista i listan och flytta den till reserves.
+let uniqueIdCounter = 0;
+
 function addToTeam(pokemon) {
     myTeam.push(pokemon);
 
@@ -264,10 +295,14 @@ function addToTeam(pokemon) {
         const reservePokemon = myTeam.pop();
         myReserves.push(reservePokemon);
     }
-
+    uniqueIdCounter++;
     renderReserves();
     renderTeam();
+    
 }
+// function generateUniqueId() {
+//     return new Date().getTime();
+// }
 
 function renderReserves() {
     reservesPokemonContainer.innerHTML = "";
@@ -309,3 +344,4 @@ function moveDownInReserves(pokemon) {
         renderReserves();
     }
 }
+renderTeam();
