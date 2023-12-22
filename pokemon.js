@@ -117,17 +117,18 @@ function applyTypeColor(pokemonContainer, types) {
         pokemonContainer.classList.add("theme-yellow");
     } else if (types.includes("fire")) {
         pokemonContainer.classList.add("theme-red");
-    } else if (types.includes("water") || types.includes("ice")) {
+    } else if (types.includes("water") || types.includes("ice")|| types.includes("stellar")) {
         pokemonContainer.classList.add("theme-blue");
     } else if (types.includes("grass")) {
         pokemonContainer.classList.add("theme-green");
     } else if (
         types.includes("rock") ||
         types.includes("dark") ||
-        types.includes("ghost")
+        types.includes("ghost")||
+        types.includes("steel")
     ) {
         pokemonContainer.classList.add("theme-gray");
-    } else if (types.includes("pshycic") || types.includes("fairy")) {
+    } else if (types.includes("pshycic") || types.includes("fairy")|| types.includes("flying")) {
         pokemonContainer.classList.add("theme-purple");
     } else if (types.includes("poison")) {
         pokemonContainer.classList.add("theme-poison");
