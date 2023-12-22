@@ -101,6 +101,7 @@ h5 {
 }
 .nickname-input::placeholder {
     color: rgba(255, 255, 255, 0.2);
+    text-align: center;
 }
 
 .buttons-container {
