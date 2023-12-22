@@ -60,8 +60,8 @@ themeButtons.forEach((button) => {
         colorSelectionContainer.classList.add(`theme-${theme}`);
         circleMenu.classList.remove("theme-red", "theme-blue", "theme-yellow");
         circleMenu.classList.add(`theme-${theme}`);
-        reservesH4.classList.remove("theme-red", "theme-blue", "theme-yellow");
         document.querySelectorAll(".reserves").forEach((reserve) => {
+            reserve.classList.remove("theme-red", "theme-blue", "theme-yellow");
             reserve.classList.add(`theme-${theme}`);
         });
         lineUpContainer.classList.remove(
@@ -93,12 +93,11 @@ themeButtons.forEach((button) => {
 // Startknapp
 startButton.addEventListener("click", (event) => {
     event.preventDefault();
-    // Get the value from the input
     const teamNameValue = teamNameInput
         .querySelector(".search-input")
         .value.trim();
 
-    // Set the team name to "your team" if the input is empty
+    // Reglerar så att det står your team om man inte vill döpa sitt lag till något
     teamNameInput.value = teamNameValue !== "" ? teamNameValue : "your team";
     createTeamNameTag();
     firstPageContainer.classList.add("display-none");
@@ -129,7 +128,6 @@ function toggleMenu() {
     searchPokemonPage.classList.toggle("display-none");
     inputVisability.classList.toggle("display-none");
     hamburgerMenuBtn.classList.toggle("cross");
-    // circleMenu.classList.toggle("cross")
 }
 
 hamburgerMenuBtn.addEventListener("click", toggleMenu);

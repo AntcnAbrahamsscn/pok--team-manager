@@ -15,18 +15,13 @@
     .pokemon-container {
         flex-direction: row;
         flex-wrap: wrap;
-        /* justify-content: space-between; */
-
     }
 
     .pokemon-box-container {
         flex-basis: 48%;
         box-sizing: border-box;
     }
-    /* .pokemon-container .pokemon-box-container:first-child {
-      flex-basis: 100%;
-
-    } */
+   
 }
 
 /* Desktops */
@@ -54,7 +49,6 @@
     .pokemon-container {
         flex-direction: row;
         flex-wrap: wrap;
-        /* justify-content: space-between; */
     }
 
     .pokemon-box-container {

@@ -8,107 +8,38 @@ body {
 }
 
 /* Text */
+h1,
+h2,
+h4 {
+    color: var(--white);
+    background-color: var(--red);
+}
+
 h1 {
     font-weight: 900;
-    background-color: var(--red);
-    color: var(--white);
 }
 
-h2 {
-    font-weight: 600;
-    background-color: var(--red);
-    color: var(--white);
-}
+h2,
 h4 {
     font-weight: 600;
-    background-color: var(--red);
-    color: var(--white);
+}
+
+h4 {
     font-size: 2em;
     text-align: center;
-    /* margin: 10px 20px; */
     border-radius: 4px;
     padding: 0.2em 0;
-    margin-bottom: 0.3em;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0.3em 0 0 0;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
         rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
-/* Input/ button */
-.search {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
-    flex-grow: 1;
-}
-.hide {
-    display: none;
+h5 {
+  font-size: 1.5em;
+  margin: 0;
 }
 
-.search-input {
-    font-family: inherit;
-    font-size: inherit;
-    background-color: var(--white);
-    border: none;
-    color: #4e4d4d;
-    padding: 0.7rem 1rem;
-    border-radius: 30px;
-    width: 100%;
-    transition: all ease-in-out 0.5s;
-    margin-right: -2rem;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-}
-
-.margin-top {
-    margin-top: 0.5em;
-}
-
-.search-input:hover,
-.search-input:focus {
-    box-shadow: 0 0 1em #00000013;
-}
-
-.search-input:focus {
-    outline: none;
-    background-color: #f0eeee;
-}
-
-.search-input::-webkit-input-placeholder {
-    font-weight: 100;
-    color: grey;
-}
-
-.search-input:focus + .search-button {
-    background-color: #f0eeee;
-}
-
-.search-button {
-    border: none;
-    background-color: var(--white);
-    margin-top: 0.1em;
-}
-
-.search-button:hover {
-    cursor: pointer;
-}
-
-.search-icon {
-    height: 1.3em;
-    width: 1.3em;
-    fill: #b4b4b4;
-}
-
-#search-all-pokemons {
-    display: none;
-}
-
-#search-team-pokemons {
-    display: none;
-}
-
+/* Styles för pokemon-container/ pokemonkort */
 .pokemon-box-container {
     display: flex;
     flex-direction: column;
@@ -123,11 +54,6 @@ h4 {
 .pokemon-container {
     display: flex;
     flex-direction: column;
-}
-
-h5 {
-    font-size: 1.5em;
-    margin: 0;
 }
 
 .pokemon-info {
@@ -212,3 +138,5 @@ h5 {
     background-color: var(--white);
     color: var(--gray);
 }
+
+

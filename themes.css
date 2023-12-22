@@ -1,4 +1,4 @@
-/* Colors */
+/* Färger */
 :root {
     --red: #fe4a49;
     --yellow: #f9a03f;
@@ -13,7 +13,7 @@
     --fighting: #941313;
   }
 
-/* Theme-colors */
+/* Färgteman */
 .theme-red {
     background-color: var(--red);
 
