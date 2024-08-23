@@ -301,12 +301,12 @@ function renderTeam() {
         lineUpMessage.textContent = "line up is complete";
     } else if (myTeam.length === 2) {
         lineUpMessage.textContent =
-            "add one more pokemon and your team is ready";
+            "Add one more pokemon and your team is ready";
     } else if (myTeam.length === 1) {
         lineUpMessage.textContent =
-            "add two more pokemon and your team is ready";
+            "Add two more pokemon and your team is ready";
     } else {
-        lineUpMessage.textContent = "add three pokemons to fill your team";
+        lineUpMessage.textContent = "Add three pokemons to fill your team. Go to all pokemons and pick your favourites. Good luck!";
     }
     lineUpContainer.append(lineUpMessage);
 }

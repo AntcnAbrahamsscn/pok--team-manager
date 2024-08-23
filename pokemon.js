@@ -128,9 +128,9 @@ function applyTypeColor(pokemonContainer, types) {
         types.includes("steel")
     ) {
         pokemonContainer.classList.add("theme-gray");
-    } else if (types.includes("pshycic") || types.includes("fairy")|| types.includes("flying")) {
+    } else if (types.includes("psychic") || types.includes("fairy")|| types.includes("flying")) {
         pokemonContainer.classList.add("theme-purple");
-    } else if (types.includes("poison")) {
+    } else if (types.includes("poison"))  {
         pokemonContainer.classList.add("theme-poison");
     } else if (
         types.includes("normal") ||
